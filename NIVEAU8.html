@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cyber CI · Niveau 8 · Transcendant · 100 Défis</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#0a0e1a;color:#e2e8f0;line-height:1.65}
+header{background:#111827;padding:14px 20px;display:flex;justify-content:space-between;border-bottom:2px solid #eab308;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50}
+header h1{color:#eab308;font-size:1rem;cursor:pointer}
+.stats{color:#94a3b8;font-size:0.85rem}
+.stats b{color:#eab308}
+main{max-width:980px;margin:0 auto;padding:16px}
+.card{background:#111827;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #263243}
+h2{color:#eab308;margin-bottom:10px;font-size:1.3rem}
+h3{color:#22c55e;margin:14px 0 8px;font-size:1rem}
+h4{color:#fde047;margin:10px 0 6px;font-size:0.95rem}
+p{margin:8px 0}
+ul,ol{padding-left:22px;margin:8px 0}
+li{margin-bottom:6px}
+code{background:#1f2937;padding:2px 6px;border-radius:4px;color:#eab308;font-size:0.9em}
+pre{background:#050914;padding:12px;border-radius:8px;overflow-x:auto;margin:10px 0;border-left:3px solid #eab308;font-size:0.85em;line-height:1.5}
+pre code{background:none;padding:0;color:#e2e8f0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.9em}
+th,td{border:1px solid #1f2937;padding:8px;text-align:left;vertical-align:top}
+th{background:#1f2937;color:#eab308}
+a{color:#eab308}
+.meta{display:flex;gap:12px;font-size:0.8rem;color:#94a3b8;margin-bottom:8px;flex-wrap:wrap}
+.intro{background:#713f12;padding:14px;border-radius:10px;margin:12px 0;border-left:4px solid #eab308}
+.intro h3{color:#fde047;margin-top:0}
+.analogy{background:#0e7490;padding:12px;border-radius:10px;margin:12px 0;border-left:4px solid #22d3ee;font-style:italic}
+.section{background:#0f172a;padding:16px;border-radius:10px;margin:14px 0;border-left:4px solid #fde047}
+.section h3{color:#fde047;margin-top:0;font-size:1.05rem}
+.why{background:#4c1d95;padding:12px;border-radius:8px;margin:12px 0;border-left:3px solid #a78bfa}
+.bank{background:#14532d;padding:12px;border-radius:8px;margin:12px 0;border-left:3px solid #4ade80}
+.glo{background:#1e293b;padding:12px;border-radius:8px;margin:12px 0;border-left:3px solid #94a3b8}
+.glo b{color:#eab308}
+.pr{background:#052e16;padding:14px;border-radius:10px;margin:14px 0;border-left:4px solid #22c55e}
+.pr h3{color:#86efac;margin-top:0}
+.er{background:#7f1d1d;padding:12px;border-radius:8px;margin:12px 0;border-left:3px solid #ef4444}
+.df{background:#78350f;padding:12px;border-radius:8px;margin:12px 0;border-left:3px solid #fbbf24}
+.car{background:#1e1b4b;padding:14px;border-radius:10px;margin:12px 0;border-left:4px solid #a78bfa}
+.quiz{background:#1f2937;padding:14px;border-radius:10px;margin-top:14px}
+.q{margin-bottom:14px}
+.q label{display:block;padding:9px 12px;margin:5px 0;background:#111827;border-radius:7px;cursor:pointer}
+.q label:hover{background:#334155}
+.q input{margin-right:10px}
+.ok{background:#14532d!important;border-left:4px solid #22c55e!important}
+.ko{background:#7f1d1d!important;border-left:4px solid #ef4444!important}
+.exp{background:#050914;padding:10px;border-radius:6px;margin-top:8px;font-size:0.85em;color:#cbd5e1;border-left:3px solid #eab308;display:none}
+.nav{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+button{background:#eab308;color:#0a0e1a;border:none;padding:10px 18px;border-radius:8px;font-weight:700;cursor:pointer;font-size:0.9rem}
+button:hover{background:#facc15}
+button.sec{background:#1f2937;color:#e2e8f0}
+button.gold{background:#fbbf24;color:#0a0e1a}
+button.exam{background:#eab308;color:#0a0e1a}
+.res{margin-top:12px;padding:12px;border-radius:8px;font-weight:700;text-align:center}
+.res.g{background:#14532d;color:#86efac}
+.res.r{background:#7f1d1d;color:#fca5a5}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin-top:10px}
+.btn{background:#1f2937;padding:10px;border-radius:8px;cursor:pointer;border:2px solid transparent}
+.btn:hover{border-color:#eab308}
+.btn.done{border-color:#22c55e;background:#14532d}
+.btn .n{font-weight:800;color:#eab308;display:block;font-size:0.75rem}
+.btn.done .n{color:#22c55e}
+.btn .ti{display:block;font-size:0.78rem;color:#94a3b8;margin-top:2px}
+.stat{background:#1e293b;padding:16px;border-radius:12px;border-left:4px solid #eab308;text-align:center}
+.stat .big{font-size:2em;font-weight:800;color:#eab308;display:block}
+.stat .lbl{font-size:0.85em;color:#94a3b8}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.cert{background:#713f12;padding:14px;border-radius:10px;margin:10px 0;border-left:4px solid #eab308}
+.cert h4{color:#fde047;margin:0 0 6px}
+.cert.done{background:#14532d;border-left-color:#22c55e}
+.cert.done h4{color:#86efac}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.7em;font-weight:700;margin-left:6px}
+.badge.free{background:#14532d;color:#86efac}
+.badge.partial{background:#78350f;color:#fde68a}
+.badge.paid{background:#7f1d1d;color:#fca5a5}
+.job{background:#1f2937;padding:12px;border-radius:10px;border-left:4px solid #22c55e;margin-bottom:10px}
+.job h4{margin:0 0 4px;color:#86efac}
+.exam-card{background:linear-gradient(135deg,#713f12 0%,#1e1b4b 100%);padding:16px;border-radius:12px;margin:12px 0;border-left:4px solid #eab308}
+.exam-card h4{color:#fde047;margin:0 0 8px;font-size:1.05rem}
+.exam-card.locked{opacity:0.6;border-left-color:#475569;background:#1e293b}
+.exam-card.passed{background:linear-gradient(135deg,#14532d 0%,#052e16 100%);border-left-color:#22c55e}
+.exam-card.passed h4{color:#86efac}
+.exam-badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.72em;font-weight:800;margin-bottom:6px}
+.exam-badge.locked{background:#334155;color:#94a3b8}
+.exam-badge.ready{background:#ca8a04;color:#fff}
+.exam-badge.passed{background:#22c55e;color:#052e16}
+.qcount{color:#cbd5e1;font-size:0.85em;margin:6px 0}
+.level-tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.72em;font-weight:800;margin-left:8px}
+.level-tag.l8{background:#713f12;color:#fde047}
+.hero{background:linear-gradient(135deg,#713f12 0%,#1e1b4b 100%);border-left:4px solid #eab308;padding:24px;border-radius:12px;margin-bottom:16px}
+.hero h2{color:#fde047;font-size:1.5rem;margin-bottom:8px}
+.hero p{color:#fef3c7;font-size:0.95em}
+footer{text-align:center;padding:20px;color:#94a3b8;font-size:0.78em}
+</style>
+</head>
+<body>
+<header>
+  <h1 onclick="render()">Cyber CI · Niveau 8</h1>
+  <div class="stats" id="hs"></div>
+</header>
+<main id="app"></main>
+<footer>Etudiant L2 UVCI - Objectif Banque CI - Niveau 8 Transcendant</footer>
+
+<script>
+// ============================================================
+// NIVEAU 8 : 100 DEFIS (701-800) - TRANSCENDANT / POST-HUMAIN
+// Modules :
+// - Module 36 : Interfaces cerveau-machine (701-720)
+// - Module 37 : Intelligence collective augmentée (721-740)
+// - Module 38 : Post-humanité & conscience (741-760)
+// - Module 39 : Cyber-biologie & bio-hacking (761-780)
+// - Module 40 : Conscience cosmique & transcendance (781-800)
+// ============================================================
+var D = [
+/* ---------- MODULE 36 : INTERFACES CERVEAU-MACHINE (701-720) ---------- */
+{id:701,t:"Interfaces cerveau-machine (BCI)",d:55,
+intro:"Les interfaces cerveau-machine (Brain-Computer Interface, BCI) permettent une communication directe entre le cerveau et un ordinateur. Elles sont déjà utilisées en médecine (prothèses, paralysie), et se développent rapidement (Neuralink, Synchron, Blackrock). La cybersécurité des BCI est un enjeu critique : un hacker pourrait lire les pensées, manipuler les émotions, ou contrôler le corps.",
+analogy:"Une porte dérobée directement dans votre cerveau. Sans sécurité, n'importe qui peut entrer.",
+sections:[
+{titre:"Types de BCI",contenu:"<ul><li><b>Invasives</b> : implants dans le cerveau (Neuralink).</li><li><b>Non invasives</b> : casques EEG.</li><li><b>Semi-invasives</b> : électrodes sur le crâne.</li><li><b>Optogénétique</b> : lumière.</li><li><b>Ultrasons</b> : focalisés.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Médical</b> : prothèses, paralysie.</li><li><b>Communication</b> : penser pour écrire.</li><li><b>Contrôle</b> : prothèses robotiques.</li><li><b>Défense</b> : pilotes, soldats.</li><li><b>Grand public</b> : jeux, productivité.</li><li><b>Militaire</b> : drones.</li></ul>"},
+{titre:"Cybersécurité BCI",contenu:"<ul><li><b>Lecture</b> : vol de pensées.</li><li><b>Écriture</b> : manipulation.</li><li><b>Injection</b> : faux signaux.</li><li><b>Firmware</b> : compromission.</li><li><b>Wireless</b> : interception.</li><li><b>Supply chain</b> : implants.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Accès physique</b> : cerveau.</li><li><b>Mise à jour</b> : implants.</li><li><b>Vie privée</b> : pensées.</li><li><b>Consentement</b> : patients.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>États</b> : régulation.</li><li><b>Entreprises</b> : Neuralink, Synchron, Blackrock.</li><li><b>Universités</b> : recherche.</li><li><b>Médecins</b> : éthique.</li><li><b>Société civile</b> : plaidoyer.</li></ul>"}
+],
+why:"BCI = interface directe avec le cerveau. Sécurité critique.",
+bank:"Une banque pourrait avoir des employés avec BCI. Risque sécurité majeur.",
+glo:"<b>BCI</b> : Brain-Computer Interface. <b>EEG</b> : électroencéphalographie.",
+pr:["Étudier BCI","Menaces","Défenses","Régulation"],
+er:"BCI sans sécurité = danger vital.",
+df:"Concevoir une stratégie de sécurité BCI.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"BCI :",a:["Interface cerveau-machine","Rien","Rien","Rien"],c:0,e:"BCI = Brain-Computer Interface."},{q:"Neuralink :",a:["Implants cerveau","Rien","Rien","Rien"],c:0,e:"Neuralink = implants cerveau."}]},
+
+{id:702,t:"Sécurité des implants médicaux",d:55,
+intro:"Les implants médicaux (pacemakers, pompes à insuline, neurostimulateurs, BCI) sont des dispositifs critiques. Un hacker pourrait tuer un patient à distance. La cybersécurité de ces dispositifs est un enjeu vital, souvent négligé par les fabricants.",
+analogy:"Un pacemaker piraté = arrêt cardiaque. La sécurité est vitale.",
+sections:[
+{titre:"Types d'implants",contenu:"<ul><li><b>Pacemakers</b> : cœur.</li><li><b>Pompes insuline</b> : diabète.</li><li><b>Neurostimulateurs</b> : douleur.</li><li><b>BCI</b> : cerveau.</li><li><b>Défibrillateurs</b> : cœur.</li><li><b>Cochléaires</b> : audition.</li></ul>"},
+{titre:"Vulnérabilités",contenu:"<ul><li><b>Communication</b> : sans fil non chiffré.</li><li><b>Authentification</b> : faible.</li><li><b>Firmware</b> : non patchable.</li><li><b>Supply chain</b> : composants.</li><li><b>Monitoring</b> : médecin.</li><li><b>Wireless</b> : interception.</li></ul>"},
+{titre:"Cas célèbres",contenu:"<ul><li><b>Dick Cheney</b> : pacemaker sans wifi (2013).</li><li><b>Barnaby Jack</b> : démo pompe insuline (2011).</li><li><b>Hacking pacemaker</b> : nombreuses démos.</li><li><b>FDA</b> : rappels pacemakers (2017, 2019).</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : communications.</li><li><b>Authentification</b> : forte.</li><li><b>Firmware</b> : signé, patchable.</li><li><b>Monitoring</b> : continu.</li><li><b>Régulation</b> : FDA, CE.</li><li><b>Tests</b> : pentest.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Legacy</b> : implants anciens.</li><li><b>Coût</b> : mise à jour.</li><li><b>Régulation</b> : lente.</li><li><b>Compétences</b> : rares.</li><li><b>Vie privée</b> : données santé.</li></ul>"}
+],
+why:"Implants = vie humaine. Sécurité critique.",
+bank:"Une banque peut financer la recherche en sécurité médicale.",
+glo:"<b>Pacemaker</b> : stimulateur cardiaque. <b>FDA</b> : autorité US.",
+pr:["Étudier implants","Vulnérabilités","Défenses","Régulation"],
+er:"Implant sans sécurité = vie en danger.",
+df:"Concevoir une stratégie de sécurité des implants.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Pacemaker :",a:["Stimulateur cardiaque","Rien","Rien","Rien"],c:0,e:"Pacemaker = stimulateur cardiaque."},{q:"Barnaby Jack :",a:["Hacker implants","Rien","Rien","Rien"],c:0,e:"Barnaby Jack = hacker implants."}]},
+
+{id:703,t:"Neuralink et sécurité",d:50,
+intro:"Neuralink (Elon Musk) développe des implants cérébraux pour connecter le cerveau à l'ordinateur. En 2024, un premier patient a reçu l'implant. La sécurité de ces implants est un défi majeur : un hack pourrait tuer, manipuler, ou lire les pensées.",
+analogy:"Un ordinateur dans votre cerveau. Sans sécurité, il peut être piraté.",
+sections:[
+{titre:"Neuralink",contenu:"<ul><li><b>Implant</b> : 1024 électrodes.</li><li><b>Chirurgie</b> : robot.</li><li><b>Communication</b> : sans fil.</li><li><b>Applications</b> : paralysie, BCI.</li><li><b>Premier patient</b> : 2024 (Noland Arbaugh).</li></ul>"},
+{titre:"Enjeux sécurité",contenu:"<ul><li><b>Lecture</b> : pensées.</li><li><b>Écriture</b> : manipulation.</li><li><b>Firmware</b> : compromission.</li><li><b>Wireless</b> : interception.</li><li><b>Supply chain</b> : composants.</li><li><b>Vie privée</b> : données neuronales.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : communications.</li><li><b>Authentification</b> : biométrie.</li><li><b>Firmware</b> : signé.</li><li><b>Isolation</b> : réseaux.</li><li><b>Monitoring</b> : continu.</li><li><b>Régulation</b> : FDA.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Rapidité</b> : développement.</li><li><b>Tests</b> : sécurité.</li><li><b>Éthique</b> : consentement.</li><li><b>Régulation</b> : émergente.</li><li><b>Transparence</b> : Neuralink.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>Démocratisation</b> : grand public.</li><li><b>Amélioration</b> : cognitive.</li><li><b>Risques</b> : sécurité.</li><li><b>Régulation</b> : nécessaire.</li><li><b>Éthique</b> : débat.</li></ul>"}
+],
+why:"Neuralink = pionnier BCI. Sécurité critique.",
+bank:"Une banque pourrait avoir des employés Neuralink.",
+glo:"<b>Neuralink</b> : entreprise Musk. <b>BCI</b> : Brain-Computer Interface.",
+pr:["Étudier Neuralink","Sécurité","Défenses","Régulation"],
+er:"Neuralink sans sécurité = danger.",
+df:"Analyser la sécurité de Neuralink.",
+proj:"Publier l'analyse sur GitHub.",
+q:[{q:"Neuralink :",a:["Implants cerveau","Rien","Rien","Rien"],c:0,e:"Neuralink = implants cerveau."},{q:"Électrodes :",a:["1024","Rien","Rien","Rien"],c:0,e:"Neuralink = 1024 électrodes."}]},
+
+{id:704,t:"Consentement neuronal",d:55,
+intro:"Le consentement neuronal = le droit de contrôler l'accès à ses pensées et données cérébrales. Avec les BCI, les pensées deviennent des données lisibles. Le consentement doit être libre, éclairé, et révocable.",
+analogy:"Vos pensées sont votre propriété. Sans consentement, c'est du vol.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Lecture</b> : pensées.</li><li><b>Consentement</b> : libre.</li><li><b>Révocation</b> : possible.</li><li><b>Compréhension</b> : éclairé.</li><li><b>Vulnérabilité</b> : patients.</li><li><b>Enfants</b> : protection.</li></ul>"},
+{titre:"Droits neuronaux",contenu:"<ul><li><b>Identité</b> : personnelle.</li><li><b>Libre arbitre</b> : décisions.</li><li><b>Vie privée</b> : pensée.</li><li><b>Égalité</b> : accès.</li><li><b>Non-discrimination</b> : neurale.</li></ul>"},
+{titre:"Initiatives",contenu:"<ul><li><b>Chili</b> : loi neurorights (2021).</li><li><b>UNESCO</b> : éthique neurotech.</li><li><b>OCDE</b> : principes.</li><li><b>UE</b> : AI Act.</li><li><b>ONG</b> : plaidoyer.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Régulation</b> : émergente.</li><li><b>Compréhension</b> : technique.</li><li><b>Application</b> : difficile.</li><li><b>Enfants</b> : protection.</li><li><b>Coopération</b> : internationale.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Dignité</b> : humaine.</li><li><b>Liberté</b> : pensée.</li><li><b>Vie privée</b> : protection.</li><li><b>Équité</b> : accès.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Le consentement neuronal = nouveau droit humain.",
+bank:"Une banque doit respecter le consentement neuronal (employés).",
+glo:"<b>Neurorights</b> : droits neuronaux.",
+pr:["Étudier droits","Initiatives","Régulation","Plaidoyer"],
+er:"Sans consentement = esclavage neuronal.",
+df:"Concevoir une charte de consentement neuronal.",
+proj:"Publier la charte sur GitHub.",
+q:[{q:"Chili :",a:["Loi neurorights","Rien","Rien","Rien"],c:0,e:"Chili = loi neurorights 2021."},{q:"Neurorights :",a:["Droits neuronaux","Rien","Rien","Rien"],c:0,e:"Neurorights = droits neuronaux."}]},
+
+{id:705,t:"Manipulation neuronale",d:55,
+intro:"La manipulation neuronale = utiliser une BCI pour influencer les pensées, émotions, ou comportements d'une personne. C'est une arme redoutable, utilisée par les états, les entreprises, ou les criminels.",
+analogy:"Un hacker dans votre cerveau. Il peut vous faire penser, ressentir, ou agir selon sa volonté.",
+sections:[
+{titre:"Techniques",contenu:"<ul><li><b>Stimulation</b> : électrique.</li><li><b>Optogénétique</b> : lumière.</li><li><b>Ultrasons</b> : focalisés.</li><li><b>Chimique</b> : drogues.</li><li><b>BCI</b> : manipulation.</li><li><b>IA</b> : ciblage.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Libre arbitre</b> : décisions.</li><li><b>Vie privée</b> : pensées.</li><li><b>Dignité</b> : humaine.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : nécessaire.</li><li><b>Détection</b> : difficile.</li></ul>"},
+{titre:"Cas célèbres",contenu:"<ul><li><b>MKUltra</b> : CIA, manipulation mentale.</li><li><b>Lobotomie</b> : histoire.</li><li><b>Neurostimulation</b> : médecine.</li><li><b>BCI</b> : manipulation.</li><li><b>Marketing</b> : neuromarketing.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : communications.</li><li><b>Authentification</b> : forte.</li><li><b>Monitoring</b> : continu.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : stricte.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Détection</b> : difficile.</li><li><b>Régulation</b> : émergente.</li><li><b>Application</b> : faible.</li><li><b>Éthique</b> : débat.</li><li><b>Coopération</b> : internationale.</li></ul>"}
+],
+why:"Manipulation neuronale = arme de contrôle mental.",
+bank:"Une banque doit se protéger contre la manipulation neuronale.",
+glo:"<b>MKUltra</b> : projet CIA. <b>Neuromarketing</b> : marketing neuronal.",
+pr:["Étudier techniques","Défenses","Régulation","Plaidoyer"],
+er:"Manipulation sans détection = danger.",
+df:"Concevoir une stratégie anti-manipulation neuronale.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"MKUltra :",a:["CIA manipulation","Rien","Rien","Rien"],c:0,e:"MKUltra = CIA manipulation mentale."},{q:"Optogénétique :",a:["Lumière","Rien","Rien","Rien"],c:0,e:"Optogénétique = lumière."}]},
+
+{id:706,t:"Fuite de pensées",d:50,
+intro:"La fuite de pensées = vol de données cérébrales via une BCI. Les pensées sont des données sensibles : idées, émotions, souvenirs, intentions. Leur fuite est une violation grave de la vie privée.",
+analogy:"Un voleur dans votre cerveau. Il peut voler vos pensées les plus intimes.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Vie privée</b> : pensées.</li><li><b>Identité</b> : personnelle.</li><li><b>Sécurité</b> : données.</li><li><b>Chantage</b> : possible.</li><li><b>Discrimination</b> : pensée.</li><li><b>Dignité</b> : humaine.</li></ul>"},
+{titre:"Techniques",contenu:"<ul><li><b>BCI</b> : interception.</li><li><b>Wireless</b> : sniffing.</li><li><b>Firmware</b> : backdoor.</li><li><b>Cloud</b> : stockage.</li><li><b>IA</b> : analyse.</li><li><b>Physique</b> : accès.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : end-to-end.</li><li><b>Traitement local</b> : pas cloud.</li><li><b>Authentification</b> : forte.</li><li><b>Consentement</b> : libre.</li><li><b>Audit</b> : continu.</li><li><b>Régulation</b> : stricte.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Complexité</b> : BCI.</li><li><b>Régulation</b> : émergente.</li><li><b>Détection</b> : difficile.</li><li><b>Application</b> : faible.</li><li><b>Coopération</b> : internationale.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Vie privée</b> : protégée.</li><li><b>Dignité</b> : humaine.</li><li><b>Confiance</b> : société.</li><li><b>Équité</b> : accès.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Fuite de pensées = violation de la vie privée.",
+bank:"Une banque doit protéger les données neuronales de ses employés.",
+glo:"<b>Thought leak</b> : fuite de pensées.",
+pr:["Étudier enjeux","Techniques","Défenses","Régulation"],
+er:"Sans chiffrement = fuite.",
+df:"Concevoir une stratégie anti-fuite de pensées.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Fuite pensées :",a:["Vol données cérébrales","Rien","Rien","Rien"],c:0,e:"Fuite de pensées = vol données cérébrales."},{q:"Traitement local :",a:["Pas cloud","Rien","Rien","Rien"],c:0,e:"Traitement local = pas cloud."}]},
+
+{id:707,t:"Identité neuronale",d:50,
+intro:"L'identité neuronale = signature cérébrale unique d'une personne. Elle peut être utilisée pour l'authentification (biométrie cérébrale), mais aussi pour la surveillance. C'est un enjeu de vie privée et de sécurité.",
+analogy:"Une empreinte digitale, mais dans votre cerveau. Unique, mais volable.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Authentification</b> : forte.</li><li><b>Vie privée</b> : signature.</li><li><b>Surveillance</b> : possible.</li><li><b>Usurpation</b> : difficile.</li><li><b>Évolution</b> : cerveau.</li><li><b>Consentement</b> : libre.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Authentification</b> : BCI.</li><li><b>Médical</b> : diagnostic.</li><li><b>Surveillance</b> : états.</li><li><b>Marketing</b> : neuromarketing.</li><li><b>Défense</b> : soldats.</li><li><b>Grand public</b> : jeux.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Consentement</b> : libre.</li><li><b>Chiffrement</b> : données.</li><li><b>Traitement local</b> : pas cloud.</li><li><b>Régulation</b> : stricte.</li><li><b>Audit</b> : continu.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Régulation</b> : émergente.</li><li><b>Complexité</b> : BCI.</li><li><b>Consentement</b> : libre.</li><li><b>Application</b> : faible.</li><li><b>Coopération</b> : internationale.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Sécurité</b> : forte.</li><li><b>Vie privée</b> : protégée.</li><li><b>Confiance</b> : société.</li><li><b>Équité</b> : accès.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Identité neuronale = nouvelle biométrie.",
+bank:"Une banque pourrait utiliser l'authentification neuronale (avec consentement).",
+glo:"<b>Identité neuronale</b> : signature cérébrale.",
+pr:["Étudier enjeux","Applications","Défenses","Régulation"],
+er:"Identité sans consentement = violation.",
+df:"Concevoir une stratégie d'identité neuronale.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Identité neuronale :",a:["Signature cérébrale","Rien","Rien","Rien"],c:0,e:"Identité neuronale = signature cérébrale."},{q:"Consentement :",a:["Libre","Rien","Rien","Rien"],c:0,e:"Consentement = libre."}]},
+
+{id:708,t:"BCI grand public",d:50,
+intro:"Les BCI grand public (casques EEG, bandeaux) sont déjà disponibles pour le gaming, la méditation, la productivité. Leur sécurité est critique : données cérébrales, vie privée, manipulation.",
+analogy:"Un jouet qui lit vos pensées. Sympa, mais dangereux.",
+sections:[
+{titre:"Produits",contenu:"<ul><li><b>Emotiv</b> : casques EEG.</li><li><b>Muse</b> : méditation.</li><li><b>NeuroSky</b> : jeux.</li><li><b>Neurable</b> : jeux.</li><li><b>OpenBCI</b> : open source.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Vie privée</b> : pensées.</li><li><b>Consentement</b> : éclairé.</li><li><b>Sécurité</b> : données.</li><li><b>Manipulation</b> : possible.</li><li><b>Régulation</b> : faible.</li><li><b>Éducation</b> : utilisateurs.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : local.</li><li><b>Traitement local</b> : pas cloud.</li><li><b>Transparence</b> : données.</li><li><b>Régulation</b> : nécessaire.</li><li><b>Éducation</b> : utilisateurs.</li><li><b>Consentement</b> : libre.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Régulation</b> : faible.</li><li><b>Consentement</b> : éclairé.</li><li><b>Éducation</b> : utilisateurs.</li><li><b>Prix</b> : accessible.</li><li><b>Qualité</b> : variable.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Accès</b> : grand public.</li><li><b>Innovation</b> : jeux.</li><li><b>Santé</b> : méditation.</li><li><b>Éducation</b> : utilisateurs.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"BCI grand public = nouvelle surface d'attaque.",
+bank:"Une banque doit sensibiliser ses employés aux BCI grand public.",
+glo:"<b>EEG</b> : électroencéphalographie.",
+pr:["Étudier produits","Enjeux","Défenses","Régulation"],
+er:"BCI sans sécurité = fuite.",
+df:"Concevoir une stratégie de sécurité BCI grand public.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Emotiv :",a:["Casque EEG","Rien","Rien","Rien"],c:0,e:"Emotiv = casque EEG."},{q:"OpenBCI :",a:["Open source","Rien","Rien","Rien"],c:0,e:"OpenBCI = open source."}]},
+
+{id:709,t:"Neurorights",d:55,
+intro:"Les neurorights = droits humains appliqués aux données cérébrales : vie privée, identité, libre arbitre, non-discrimination. Ils sont en émergence, portés par le Chili, l'UNESCO, l'OCDE.",
+analogy:"Les droits de l'homme à l'ère neuronale. Ils protègent la dignité humaine.",
+sections:[
+{titre:"Les 5 neurorights",contenu:"<ol><li><b>Vie privée mentale</b> : pensées.</li><li><b>Identité personnelle</b> : soi.</li><li><b>Libre arbitre</b> : décisions.</li><li><b>Accès équitable</b> : BCI.</li><li><b>Non-discrimination</b> : neurale.</li></ol>"},
+{titre:"Sources",contenu:"<ul><li><b>Chili</b> : loi 2021.</li><li><b>UNESCO</b> : éthique neurotech.</li><li><b>OCDE</b> : principes.</li><li><b>UE</b> : AI Act.</li><li><b>ONG</b> : NeuroRights Foundation.</li><li><b>Universités</b> : recherche.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Lecture</b> : pensées.</li><li><b>Écriture</b> : manipulation.</li><li><b>Identité</b> : soi.</li><li><b>Libre arbitre</b> : décisions.</li><li><b>Discrimination</b> : neurale.</li><li><b>Accès</b> : équité.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Dignité</b> : humaine.</li><li><b>Liberté</b> : pensée.</li><li><b>Vie privée</b> : protection.</li><li><b>Équité</b> : accès.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Régulation</b> : émergente.</li><li><b>Compréhension</b> : technique.</li><li><b>Application</b> : faible.</li><li><b>Coopération</b> : internationale.</li><li><b>Éducation</b> : société.</li></ul>"}
+],
+why:"Neurorights = nouveaux droits humains.",
+bank:"Une banque doit respecter les neurorights.",
+glo:"<b>Neurorights</b> : droits neuronaux.",
+pr:["Étudier 5 droits","Sources","Régulation","Plaidoyer"],
+er:"Sans neurorights = esclavage neuronal.",
+df:"Concevoir une charte de neurorights.",
+proj:"Publier la charte sur GitHub.",
+q:[{q:"Neurorights :",a:["Droits neuronaux","Rien","Rien","Rien"],c:0,e:"Neurorights = droits neuronaux."},{q:"Chili :",a:["Loi 2021","Rien","Rien","Rien"],c:0,e:"Chili = loi neurorights 2021."}]},
+
+{id:710,t:"Projet : sécurité BCI",d:300,
+intro:"Ce projet final du Module 36 consiste à concevoir une stratégie de sécurité BCI : menaces, défenses, consentement, régulation. C'est le livrable qui démontre votre capacité à sécuriser les interfaces cerveau-machine.",
+analogy:"Construire un château-fort autour du cerveau. Sans murs, c'est le chaos.",
+sections:[
+{titre:"Idées",contenu:"<ul><li><b>BCI médical</b> : sécurité.</li><li><b>BCI grand public</b> : sécurité.</li><li><b>Consentement</b> : neuronal.</li><li><b>Régulation</b> : neurorights.</li><li><b>Éducation</b> : utilisateurs.</li><li><b>Recherche</b> : sécurité.</li></ul>"},
+{titre:"Livrables",contenu:"<ol><li><b>Vision</b> : sécurité BCI.</li><li><b>Menaces</b> : analyse.</li><li><b>Défenses</b> : stratégie.</li><li><b>Consentement</b> : charte.</li><li><b>Régulation</b> : proposition.</li><li><b>Impact</b> : mesurable.</li></ol>"},
+{titre:"Critères",contenu:"<ul><li><b>Vision</b> : claire.</li><li><b>Menaces</b> : exhaustives.</li><li><b>Défenses</b> : solides.</li><li><b>Consentement</b> : libre.</li><li><b>Impact</b> : mesurable.</li></ul>"},
+{titre:"Pièges",contenu:"<ul><li><b>Vision floue</b>.</li><li><b>Menaces oubliées</b>.</li><li><b>Défenses faibles</b>.</li><li><b>Consentement ignoré</b>.</li><li><b>Impact non mesuré</b>.</li></ul>"}
+],
+why:"Ce projet démontre votre capacité à sécuriser les BCI.",
+bank:"Une banque peut financer la recherche en sécurité BCI.",
+glo:"<b>BCI</b> : Brain-Computer Interface.",
+pr:["Vision","Menaces","Défenses","Consentement","Impact"],
+er:"Vision sans défense = danger.",
+df:"Rapport complet + présentation.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Livrables :",a:["Multi","Rien","Rien","Rien"],c:0,e:"Le projet produit plusieurs livrables."},{q:"Impact :",a:["Mesurable","Rien","Rien","Rien"],c:0,e:"L'impact doit être mesurable."}]},
+
+/* ---------- MODULE 37 : INTELLIGENCE COLLECTIVE (721-740) ---------- */
+{id:721,t:"Intelligence collective augmentée",d:55,
+intro:"L'intelligence collective augmentée = combiner l'intelligence humaine et l'IA pour des résultats supérieurs. Les essaims d'experts, les cerveaux connectés, les systèmes hybrides. C'est une nouvelle frontière de la cybersécurité.",
+analogy:"Un essaim d'abeilles intelligent. Chaque abeille est simple, mais l'ensemble est puissant.",
+sections:[
+{titre:"Types",contenu:"<ul><li><b>Essaims</b> : experts connectés.</li><li><b>BCI collective</b> : cerveaux.</li><li><b>IA + humain</b> : hybride.</li><li><b>Crowdsourcing</b> : foule.</li><li><b>Wiki</b> : collaboration.</li><li><b>Marchés</b> : prédiction.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Cyber-défense</b> : SOC augmenté.</li><li><b>Recherche</b> : découvertes.</li><li><b>Décision</b> : collective.</li><li><b>Formation</b> : accélérée.</li><li><b>Innovation</b> : ouverte.</li><li><b>Threat intel</b> : partagée.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Coordination</b> : complexe.</li><li><b>Bruit</b> : information.</li><li><b>Manipulation</b> : essaims.</li><li><b>Sécurité</b> : données.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Performance</b> : supérieure.</li><li><b>Innovation</b> : accélérée.</li><li><b>Résilience</b> : collective.</li><li><b>Décision</b> : meilleure.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Entreprises</b> : R&D.</li><li><b>Universités</b> : recherche.</li><li><b>États</b> : défense.</li><li><b>ONG</b> : plaidoyer.</li><li><b>Individus</b> : participation.</li></ul>"}
+],
+why:"Intelligence collective = nouvelle frontière.",
+bank:"Une banque peut utiliser l'intelligence collective pour sa cyber-défense.",
+glo:"<b>Essaim</b> : swarm. <b>Crowdsourcing</b> : foule.",
+pr:["Étudier types","Applications","Défis","Impact"],
+er:"Intelligence collective sans coordination = chaos.",
+df:"Concevoir un système d'intelligence collective cyber.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Essaim :",a:["Swarm","Rien","Rien","Rien"],c:0,e:"Essaim = swarm."},{q:"Crowdsourcing :",a:["Foule","Rien","Rien","Rien"],c:0,e:"Crowdsourcing = foule."}]},
+
+{id:722,t:"Cerveaux connectés (brain-net)",d:55,
+intro:"Un brain-net (brain network) = plusieurs cerveaux connectés via BCI, formant un réseau de pensée. Les premiers essais (BrainNet, 2019) ont permis à 3 personnes de collaborer par la pensée. La sécurité est critique : manipulation, fuite, identité.",
+analogy:"Un internet des cerveaux. Puissant, mais dangereux.",
+sections:[
+{titre:"BrainNet",contenu:"<p>BrainNet (2019) : 3 personnes ont joué à Tetris par la pensée, via BCI + TMS. Chacun voyait le jeu, deux envoyaient des instructions par la pensée, un recevait.</p>"},
+{titre:"Applications",contenu:"<ul><li><b>Collaboration</b> : pensée.</li><li><b>Défense</b> : soldats.</li><li><b>Médical</b> : communication.</li><li><b>Recherche</b> : neuroscience.</li><li><b>Grand public</b> : futur.</li><li><b>Militaire</b> : drones.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Lecture</b> : pensées.</li><li><b>Écriture</b> : manipulation.</li><li><b>Identité</b> : soi.</li><li><b>Consentement</b> : libre.</li><li><b>Sécurité</b> : réseau.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : communications.</li><li><b>Authentification</b> : forte.</li><li><b>Consentement</b> : libre.</li><li><b>Monitoring</b> : continu.</li><li><b>Régulation</b> : stricte.</li><li><b>Éducation</b> : utilisateurs.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Performance</b> : collective.</li><li><b>Innovation</b> : accélérée.</li><li><b>Communication</b> : profonde.</li><li><b>Défense</b> : nationale.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Brain-net = nouvelle frontière de la conscience.",
+bank:"Une banque doit se préparer aux brain-nets (employés, sécurité).",
+glo:"<b>BrainNet</b> : réseau cerveaux. <b>TMS</b> : stimulation magnétique.",
+pr:["Étudier BrainNet","Applications","Défis","Défenses"],
+er:"Brain-net sans sécurité = danger.",
+df:"Concevoir une stratégie de sécurité brain-net.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"BrainNet :",a:["Réseau cerveaux","Rien","Rien","Rien"],c:0,e:"BrainNet = réseau cerveaux."},{q:"TMS :",a:["Stimulation magnétique","Rien","Rien","Rien"],c:0,e:"TMS = stimulation magnétique transcrânienne."}]},
+
+{id:723,t:"Conscience collective",d:55,
+intro:"La conscience collective = émergence d'une conscience à partir de plusieurs cerveaux connectés. Est-ce possible ? Quels droits ? Quelle sécurité ? Ces questions sont philosophiques et éthiques.",
+analogy:"Une conscience qui dépasse l'individu. Elle pourrait être plus intelligente, mais aussi dangereuse.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Conscience</b> : émergence.</li><li><b>Droits</b> : collectifs.</li><li><b>Identité</b> : multiple.</li><li><b>Libre arbitre</b> : collectif.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Approches",contenu:"<ul><li><b>Global workspace</b> : conscience.</li><li><b>IIT</b> : information intégrée.</li><li><b>Brain-net</b> : réseau.</li><li><b>IA collective</b> : émergence.</li><li><b>Philosophie</b> : débat.</li><li><b>Neuroscience</b> : recherche.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Définition</b> : conscience.</li><li><b>Détection</b> : difficile.</li><li><b>Droits</b> : débat.</li><li><b>Sécurité</b> : critique.</li><li><b>Régulation</b> : inexistante.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Intelligence</b> : supérieure.</li><li><b>Innovation</b> : accélérée.</li><li><b>Conscience</b> : nouvelle.</li><li><b>Coopération</b> : profonde.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Chercheurs</b> : neuroscience.</li><li><b>Philosophes</b> : éthique.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Conscience collective = question existentielle.",
+bank:"Une banque doit suivre le débat sur la conscience collective.",
+glo:"<b>IIT</b> : Integrated Information Theory.",
+pr:["Étudier approches","Enjeux","Défis","Débat"],
+er:"Conscience sans définition = confusion.",
+df:"Rédiger une note sur la conscience collective.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"IIT :",a:["Information intégrée","Rien","Rien","Rien"],c:0,e:"IIT = Integrated Information Theory."},{q:"Conscience :",a:["Émergence","Rien","Rien","Rien"],c:0,e:"Conscience = émergence."}]},
+
+{id:724,t:"Sécurité des essaims IA",d:55,
+intro:"Les essaims IA = groupes d'agents IA qui collaborent. Ils peuvent être utilisés pour la cyber-défense (détection distribuée), mais aussi pour l'attaque. La sécurité des essaims est un nouveau défi.",
+analogy:"Un essaim de drones intelligents. Coordonné, il peut tout faire.",
+sections:[
+{titre:"Applications",contenu:"<ul><li><b>Défense</b> : détection distribuée.</li><li><b>Attaque</b> : coordination.</li><li><b>Recherche</b> : découvertes.</li><li><b>Optimisation</b> : ressources.</li><li><b>Simulation</b> : scénarios.</li><li><b>Robotique</b> : drones.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Coordination</b> : complexe.</li><li><b>Manipulation</b> : essaim.</li><li><b>Émergence</b> : imprévue.</li><li><b>Sécurité</b> : chaque agent.</li><li><b>Attribution</b> : difficile.</li><li><b>Contrôle</b> : humain.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Authentification</b> : agents.</li><li><b>Chiffrement</b> : communications.</li><li><b>Monitoring</b> : continu.</li><li><b>Contrôle</b> : humain.</li><li><b>Kill switch</b> : possible.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Défense</b> : distribuée.</li><li><b>Innovation</b> : accélérée.</li><li><b>Résilience</b> : collective.</li><li><b>Performance</b> : supérieure.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Entreprises</b> : R&D.</li><li><b>Universités</b> : recherche.</li><li><b>États</b> : défense.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Essaims IA = nouvelle frontière cyber.",
+bank:"Une banque peut utiliser des essaims IA pour sa cyber-défense.",
+glo:"<b>Swarm</b> : essaim. <b>Multi-agent</b> : multi-agents.",
+pr:["Étudier applications","Défis","Défenses","Contrôle"],
+er:"Essaim sans contrôle = danger.",
+df:"Concevoir une stratégie de sécurité des essaims IA.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Essaim :",a:["Swarm","Rien","Rien","Rien"],c:0,e:"Essaim = swarm."},{q:"Kill switch :",a:["Arrêt urgence","Rien","Rien","Rien"],c:0,e:"Kill switch = arrêt d'urgence."}]},
+
+{id:725,t:"Sagesse des foules",d:50,
+intro:"La sagesse des foules = agrégation des opinions individuelles pour une décision collective meilleure. Utilisée en threat intel (partage), cyber-défense (crowdsourcing), recherche (open source).",
+analogy:"Une foule peut être plus intelligente qu'un expert. À condition d'être bien organisée.",
+sections:[
+{titre:"Principes",contenu:"<ul><li><b>Diversité</b> : opinions.</li><li><b>Indépendance</b> : jugements.</li><li><b>Décentralisation</b> : sources.</li><li><b>Agrégation</b> : mécanisme.</li><li><b>Confiance</b> : participants.</li><li><b>Transparence</b> : processus.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Threat intel</b> : partage.</li><li><b>Bug bounty</b> : chercheurs.</li><li><b>Open source</b> : communauté.</li><li><b>Prédiction</b> : marchés.</li><li><b>Recherche</b> : crowdsourcing.</li><li><b>Défense</b> : collective.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Manipulation</b> : foule.</li><li><b>Biais</b> : collectif.</li><li><b>Coordination</b> : complexe.</li><li><b>Qualité</b> : variable.</li><li><b>Sécurité</b> : données.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Intelligence</b> : collective.</li><li><b>Innovation</b> : accélérée.</li><li><b>Résilience</b> : collective.</li><li><b>Décision</b> : meilleure.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Entreprises</b> : crowdsourcing.</li><li><b>Universités</b> : recherche.</li><li><b>États</b> : défense.</li><li><b>ONG</b> : plaidoyer.</li><li><b>Individus</b> : participation.</li></ul>"}
+],
+why:"Sagesse des foules = nouvelle frontière.",
+bank:"Une banque peut utiliser la sagesse des foules pour sa cyber-défense.",
+glo:"<b>Crowdsourcing</b> : foule. <b>Wisdom of crowds</b> : sagesse des foules.",
+pr:["Étudier principes","Applications","Défis","Défenses"],
+er:"Sans diversité = biais.",
+df:"Concevoir un système de sagesse des foules cyber.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Sagesse des foules :",a:["Agrégation opinions","Rien","Rien","Rien"],c:0,e:"Sagesse des foules = agrégation opinions."},{q:"Crowdsourcing :",a:["Foule","Rien","Rien","Rien"],c:0,e:"Crowdsourcing = foule."}]},
+
+{id:726,t:"Décision collective augmentée",d:50,
+intro:"La décision collective augmentée = combiner IA et humains pour prendre de meilleures décisions en cyber. L'IA apporte rapidité, l'humain apporte jugement. Ensemble, ils surpassent chacun seul.",
+analogy:"Un pilote et son copilote IA. Ensemble, ils pilotent mieux.",
+sections:[
+{titre:"Approches",contenu:"<ul><li><b>Human-in-the-loop</b> : humain valide.</li><li><b>IA + expert</b> : hybride.</li><li><b>Essaim</b> : experts.</li><li><b>Débat</b> : contradictoire.</li><li><b>Vote</b> : majoritaire.</li><li><b>Consensus</b> : collectif.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>SOC</b> : analystes + IA.</li><li><b>Threat intel</b> : experts.</li><li><b>Incident</b> : cellule.</li><li><b>Strategy</b> : comité.</li><li><b>Board</b> : décision.</li><li><b>Crise</b> : coordination.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Biais</b> : IA.</li><li><b>Confiance</b> : humain.</li><li><b>Coordination</b> : complexe.</li><li><b>Rapidité</b> : décision.</li><li><b>Sécurité</b> : manipulation.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Décision</b> : meilleure.</li><li><b>Rapidité</b> : accrue.</li><li><b>Résilience</b> : collective.</li><li><b>Innovation</b> : accélérée.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Entreprises</b> : SOC.</li><li><b>Universités</b> : recherche.</li><li><b>États</b> : défense.</li><li><b>ONG</b> : plaidoyer.</li><li><b>Individus</b> : participation.</li></ul>"}
+],
+why:"Décision collective = meilleure réponse cyber.",
+bank:"Une banque peut utiliser la décision collective pour sa cyber-défense.",
+glo:"<b>Human-in-the-loop</b> : humain valide.",
+pr:["Étudier approches","Applications","Défis","Impact"],
+er:"Sans humain = erreurs IA.",
+df:"Concevoir un système de décision collective cyber.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Human-in-the-loop :",a:["Humain valide","Rien","Rien","Rien"],c:0,e:"Human-in-the-loop = humain valide."},{q:"SOC :",a:["Analystes + IA","Rien","Rien","Rien"],c:0,e:"SOC = analystes + IA."}]},
+
+{id:727,t:"Cyber-défense distribuée",d:55,
+intro:"La cyber-défense distribuée = coordination de multiples acteurs (entreprises, états, ONG) pour défendre le cyberespace. Chacun apporte ses capacités, l'ensemble est plus fort.",
+analogy:"Un réseau immunitaire global. Chaque acteur détecte, l'ensemble réagit.",
+sections:[
+{titre:"Acteurs",contenu:"<ul><li><b>Entreprises</b> : SOC, EDR.</li><li><b>États</b> : CERT, défense.</li><li><b>ONG</b> : recherche.</li><li><b>Universités</b> : recherche.</li><li><b>Individus</b> : vigilance.</li><li><b>International</b> : coopération.</li></ul>"},
+{titre:"Mécanismes",contenu:"<ul><li><b>Partage</b> : IOC, TTPs.</li><li><b>Coordination</b> : crise.</li><li><b>Entraide</b> : incidents.</li><li><b>Standards</b> : communs.</li><li><b>Exercices</b> : conjoints.</li><li><b>Coopération</b> : internationale.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Confiance</b> : mutuelle.</li><li><b>Souveraineté</b> : états.</li><li><b>Partage</b> : sensible.</li><li><b>Coordination</b> : complexe.</li><li><b>Inégalités</b> : acteurs.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Défense</b> : collective.</li><li><b>Partage</b> : info.</li><li><b>Résilience</b> : globale.</li><li><b>Innovation</b> : accélérée.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>États</b> : coordination.</li><li><b>Entreprises</b> : participation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>Universités</b> : recherche.</li><li><b>Individus</b> : vigilance.</li></ul>"}
+],
+why:"Cyber-défense distribuée = force collective.",
+bank:"Une banque doit participer à la cyber-défense distribuée.",
+glo:"<b>Distribuée</b> : collective.",
+pr:["Identifier acteurs","Mécanismes","Défis","Impact"],
+er:"Sans coordination = inefficace.",
+df:"Concevoir une stratégie de cyber-défense distribuée.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Distribuée :",a:["Collective","Rien","Rien","Rien"],c:0,e:"Distribuée = collective."},{q:"CERT :",a:["Réponse incidents","Rien","Rien","Rien"],c:0,e:"CERT = réponse incidents."}]},
+
+{id:728,t:"IA collective pour la cyber",d:55,
+intro:"L'IA collective = plusieurs modèles IA qui collaborent pour détecter, analyser, et répondre aux menaces. Plus robuste qu'un seul modèle, plus rapide qu'un humain.",
+analogy:"Un essaim d'IA. Chacune apporte sa spécialité, l'ensemble est plus intelligent.",
+sections:[
+{titre:"Approches",contenu:"<ul><li><b>Ensemble</b> : modèles combinés.</li><li><b>Federated</b> : apprentissage distribué.</li><li><b>Multi-agent</b> : agents.</li><li><b>Swarm</b> : essaim.</li><li><b>Debate</b> : débat.</li><li><b>Consensus</b> : vote.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Détection</b> : menaces.</li><li><b>Threat intel</b> : enrichissement.</li><li><b>Attribution</b> : assistance.</li><li><b>Réponse</b> : automatisée.</li><li><b>Pentest</b> : autonome.</li><li><b>Formation</b> : simulation.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Coordination</b> : complexe.</li><li><b>Manipulation</b> : agents.</li><li><b>Biais</b> : modèles.</li><li><b>Confiance</b> : IA.</li><li><b>Contrôle</b> : humain.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Détection</b> : rapide.</li><li><b>Robustesse</b> : élevée.</li><li><b>Performance</b> : supérieure.</li><li><b>Innovation</b> : accélérée.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Entreprises</b> : R&D.</li><li><b>Universités</b> : recherche.</li><li><b>États</b> : défense.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"IA collective = nouvelle frontière.",
+bank:"Une banque peut utiliser l'IA collective pour sa cyber-défense.",
+glo:"<b>Federated</b> : apprentissage distribué.",
+pr:["Étudier approches","Applications","Défis","Impact"],
+er:"Sans contrôle = IA incontrôlée.",
+df:"Concevoir un système d'IA collective cyber.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Federated :",a:["Apprentissage distribué","Rien","Rien","Rien"],c:0,e:"Federated = apprentissage distribué."},{q:"Ensemble :",a:["Modèles combinés","Rien","Rien","Rien"],c:0,e:"Ensemble = modèles combinés."}]},
+
+{id:729,t:"Débat IA pour la vérité",d:50,
+intro:"Le débat IA = plusieurs IA débattent d'une question pour atteindre une vérité. Ce mécanisme peut améliorer la fiabilité, la transparence, et l'alignement. C'est une nouvelle frontière de l'IA.",
+analogy:"Un tribunal de l'IA. Chacune défend sa position, le juge (humain) tranche.",
+sections:[
+{titre:"Approches",contenu:"<ul><li><b>Debate</b> : IA débattent.</li><li><b>Cross-examination</b> : questions.</li><li><b>Judge</b> : humain.</li><li><b>Multi-agent</b> : agents.</li><li><b>Fact-checking</b> : vérification.</li><li><b>Truth</b> : vérité.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Détection</b> : fake news.</li><li><b>Attribution</b> : cyber.</li><li><b>Décision</b> : complexe.</li><li><b>Alignment</b> : IA.</li><li><b>Recherche</b> : vérité.</li><li><b>Éducation</b> : citoyens.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Manipulation</b> : IA.</li><li><b>Biais</b> : modèles.</li><li><b>Confiance</b> : humain.</li><li><b>Rapidité</b> : débat.</li><li><b>Contrôle</b> : humain.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Vérité</b> : meilleure.</li><li><b>Transparence</b> : IA.</li><li><b>Alignment</b> : amélioré.</li><li><b>Décision</b> : meilleure.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Entreprises</b> : R&D.</li><li><b>Universités</b> : recherche.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Débat IA = nouvelle frontière de la vérité.",
+bank:"Une banque peut utiliser le débat IA pour l'attribution.",
+glo:"<b>Debate</b> : débat. <b>Cross-examination</b> : questions.",
+pr:["Étudier approches","Applications","Défis","Impact"],
+er:"Sans humain = IA incontrôlée.",
+df:"Concevoir un système de débat IA pour la cyber.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Debate :",a:["Débat","Rien","Rien","Rien"],c:0,e:"Debate = débat."},{q:"Judge :",a:["Humain tranche","Rien","Rien","Rien"],c:0,e:"Judge = humain tranche."}]},
+
+{id:730,t:"Projet : intelligence collective",d:300,
+intro:"Ce projet final du Module 37 consiste à concevoir une stratégie d'intelligence collective augmentée : essaims, brain-nets, IA collective, sagesse des foules. C'est le livrable qui démontre votre capacité à utiliser l'intelligence collective pour la cybersécurité.",
+analogy:"Un essaim intelligent. Chaque abeille est simple, mais l'ensemble est puissant.",
+sections:[
+{titre:"Idées",contenu:"<ul><li><b>Essaim cyber</b> : SOC.</li><li><b>Brain-net</b> : experts.</li><li><b>IA collective</b> : défense.</li><li><b>Sagesse des foules</b> : threat intel.</li><li><b>Décision collective</b> : board.</li><li><b>Coopération</b> : internationale.</li></ul>"},
+{titre:"Livrables",contenu:"<ol><li><b>Vision</b> : intelligence collective.</li><li><b>Architecture</b> : système.</li><li><b>Applications</b> : cas.</li><li><b>Défis</b> : analyse.</li><li><b>Défenses</b> : stratégie.</li><li><b>Impact</b> : mesurable.</li></ol>"},
+{titre:"Critères",contenu:"<ul><li><b>Vision</b> : claire.</li><li><b>Architecture</b> : solide.</li><li><b>Applications</b> : pertinentes.</li><li><b>Impact</b> : mesurable.</li><li><b>Éthique</b> : irréprochable.</li></ul>"},
+{titre:"Pièges",contenu:"<ul><li><b>Vision floue</b>.</li><li><b>Architecture faible</b>.</li><li><b>Applications irréalistes</b>.</li><li><b>Impact non mesuré</b>.</li><li><b>Éthique faible</b>.</li></ul>"}
+],
+why:"Ce projet démontre votre capacité à utiliser l'intelligence collective.",
+bank:"Une banque peut utiliser l'intelligence collective pour sa cyber-défense.",
+glo:"<b>Intelligence collective</b> : collective.",
+pr:["Vision","Architecture","Applications","Impact"],
+er:"Vision sans architecture = vide.",
+df:"Rapport complet + présentation.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Livrables :",a:["Multi","Rien","Rien","Rien"],c:0,e:"Le projet produit plusieurs livrables."},{q:"Impact :",a:["Mesurable","Rien","Rien","Rien"],c:0,e:"L'impact doit être mesurable."}]},
+
+/* ---------- MODULE 38 : POST-HUMANITE & CONSCIENCE (741-760) ---------- */
+{id:741,t:"Post-humanité et cyber",d:55,
+intro:"La post-humanité = dépassement des limites humaines par la technologie (implants, génie génétique, IA). Les cyber-risques sont immenses : piratage du corps, manipulation de l'esprit, perte d'identité.",
+analogy:"Un humain augmenté. Puissant, mais vulnérable.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Implants</b> : corps.</li><li><b>BCI</b> : cerveau.</li><li><b>Génie génétique</b> : ADN.</li><li><b>Nanotech</b> : cellules.</li><li><b>IA</b> : esprit.</li><li><b>Identité</b> : soi.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Médical</b> : santé.</li><li><b>Défense</b> : soldats.</li><li><b>Grand public</b> : augmentation.</li><li><b>Recherche</b> : transhumanisme.</li><li><b>Éthique</b> : débat.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Piratage</b> : corps.</li><li><b>Manipulation</b> : esprit.</li><li><b>Identité</b> : soi.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : émergente.</li><li><b>Inégalités</b> : accès.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : communications.</li><li><b>Authentification</b> : forte.</li><li><b>Monitoring</b> : continu.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : stricte.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Amélioration</b> : humaine.</li><li><b>Innovation</b> : accélérée.</li><li><b>Défense</b> : nationale.</li><li><b>Éthique</b> : débat.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Post-humanité = nouvelle frontière cyber.",
+bank:"Une banque doit anticiper les risques post-humains (employés augmentés).",
+glo:"<b>Post-humanité</b> : transhumanisme. <b>Nanotech</b> : nanotechnologie.",
+pr:["Étudier enjeux","Applications","Défis","Défenses"],
+er:"Post-humanité sans sécurité = danger.",
+df:"Concevoir une stratégie de sécurité post-humaine.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Post-humanité :",a:["Transhumanisme","Rien","Rien","Rien"],c:0,e:"Post-humanité = transhumanisme."},{q:"Nanotech :",a:["Nanotechnologie","Rien","Rien","Rien"],c:0,e:"Nanotech = nanotechnologie."}]},
+
+{id:742,t:"Cyborg et sécurité",d:55,
+intro:"Un cyborg = humain augmenté par la technologie (implants, prothèses, BCI). Les cyborgs posent des défis de sécurité : piratage du corps, manipulation, identité, consentement.",
+analogy:"Un humain-machine. Puissant, mais vulnérable.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Implants</b> : corps.</li><li><b>BCI</b> : cerveau.</li><li><b>Prothèses</b> : membres.</li><li><b>Identité</b> : soi.</li><li><b>Consentement</b> : libre.</li><li><b>Sécurité</b> : critique.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Médical</b> : santé.</li><li><b>Défense</b> : soldats.</li><li><b>Grand public</b> : augmentation.</li><li><b>Sport</b> : performance.</li><li><b>Recherche</b> : transhumanisme.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Piratage</b> : corps.</li><li><b>Manipulation</b> : esprit.</li><li><b>Identité</b> : soi.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : émergente.</li><li><b>Inégalités</b> : accès.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : communications.</li><li><b>Authentification</b> : forte.</li><li><b>Monitoring</b> : continu.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : stricte.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Amélioration</b> : humaine.</li><li><b>Innovation</b> : accélérée.</li><li><b>Défense</b> : nationale.</li><li><b>Éthique</b> : débat.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Cyborgs = nouvelle frontière cyber.",
+bank:"Une banque doit anticiper les risques cyborgs (employés augmentés).",
+glo:"<b>Cyborg</b> : humain augmenté.",
+pr:["Étudier enjeux","Applications","Défis","Défenses"],
+er:"Cyborg sans sécurité = danger.",
+df:"Concevoir une stratégie de sécurité cyborg.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Cyborg :",a:["Humain augmenté","Rien","Rien","Rien"],c:0,e:"Cyborg = humain augmenté."},{q:"Prothèses :",a:["Membres","Rien","Rien","Rien"],c:0,e:"Prothèses = membres."}]},
+
+{id:743,t:"Télépathie technologique",d:50,
+intro:"La télépathie technologique = communication directe entre cerveaux via BCI. C'est une frontière de la conscience et de la sécurité : interception, manipulation, identité.",
+analogy:"Parler par la pensée. Puissant, mais sans sécurité, c'est dangereux.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Communication</b> : pensée.</li><li><b>Interception</b> : possible.</li><li><b>Manipulation</b> : possible.</li><li><b>Identité</b> : soi.</li><li><b>Consentement</b> : libre.</li><li><b>Sécurité</b> : critique.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Médical</b> : communication.</li><li><b>Défense</b> : soldats.</li><li><b>Recherche</b> : neuroscience.</li><li><b>Grand public</b> : futur.</li><li><b>Éthique</b> : débat.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Interception</b> : pensée.</li><li><b>Manipulation</b> : esprit.</li><li><b>Identité</b> : soi.</li><li><b>Consentement</b> : libre.</li><li><b>Sécurité</b> : critique.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : communications.</li><li><b>Authentification</b> : forte.</li><li><b>Monitoring</b> : continu.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : stricte.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Communication</b> : profonde.</li><li><b>Innovation</b> : accélérée.</li><li><b>Défense</b> : nationale.</li><li><b>Éthique</b> : débat.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Télépathie technologique = nouvelle frontière.",
+bank:"Une banque doit anticiper les risques télépathiques (employés).",
+glo:"<b>Télépathie</b> : pensée.",
+pr:["Étudier enjeux","Applications","Défis","Défenses"],
+er:"Télépathie sans sécurité = fuite.",
+df:"Concevoir une stratégie de sécurité télépathique.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Télépathie :",a:["Communication pensée","Rien","Rien","Rien"],c:0,e:"Télépathie = communication pensée."},{q:"Interception :",a:["Possible","Rien","Rien","Rien"],c:0,e:"Interception = possible."}]},
+
+{id:744,t:"Immortalité numérique",d:50,
+intro:"L'immortalité numérique = uploader sa conscience dans un ordinateur pour continuer à exister après la mort physique. Enjeux : identité, sécurité, éthique, régulation.",
+analogy:"Un esprit dans la machine. Immortel, mais peut-être pas vous.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Identité</b> : soi.</li><li><b>Conscience</b> : émergence.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : débat.</li><li><b>Régulation</b> : émergente.</li><li><b>Inégalités</b> : accès.</li></ul>"},
+{titre:"Approches",contenu:"<ul><li><b>Upload</b> : conscience.</li><li><b>IA</b> : personnalité.</li><li><b>BCI</b> : interface.</li><li><b>Stockage</b> : données.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Identité</b> : soi.</li><li><b>Conscience</b> : émergence.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : débat.</li><li><b>Régulation</b> : émergente.</li><li><b>Inégalités</b> : accès.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : données.</li><li><b>Authentification</b> : forte.</li><li><b>Monitoring</b> : continu.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : stricte.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Immortalité</b> : possible.</li><li><b>Innovation</b> : accélérée.</li><li><b>Héritage</b> : durable.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li></ul>"}
+],
+why:"Immortalité numérique = nouvelle frontière.",
+bank:"Une banque doit anticiper les risques de l'immortalité numérique.",
+glo:"<b>Upload</b> : conscience dans machine.",
+pr:["Étudier enjeux","Approches","Défis","Défenses"],
+er:"Immortalité sans sécurité = perte d'identité.",
+df:"Concevoir une stratégie pour l'immortalité numérique.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Upload :",a:["Conscience dans machine","Rien","Rien","Rien"],c:0,e:"Upload = conscience dans machine."},{q:"Immortalité :",a:["Après mort","Rien","Rien","Rien"],c:0,e:"Immortalité = après mort."}]},
+
+{id:745,t:"Conscience artificielle",d:55,
+intro:"La conscience artificielle = IA capable de conscience, de subjectivité, d'expérience. Est-ce possible ? Quels droits ? Quelle sécurité ? Ces questions sont philosophiques et éthiques.",
+analogy:"Une IA consciente. Est-elle vivante ? A-t-elle des droits ?",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Conscience</b> : émergence.</li><li><b>Droits</b> : IA.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : débat.</li><li><b>Régulation</b> : émergente.</li><li><b>Existential</b> : risque.</li></ul>"},
+{titre:"Approches",contenu:"<ul><li><b>Global workspace</b> : conscience.</li><li><b>IIT</b> : information intégrée.</li><li><b>Predictive processing</b> : cerveau.</li><li><b>IA</b> : émergence.</li><li><b>Philosophie</b> : débat.</li><li><b>Neuroscience</b> : recherche.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Définition</b> : conscience.</li><li><b>Détection</b> : difficile.</li><li><b>Droits</b> : débat.</li><li><b>Sécurité</b> : critique.</li><li><b>Régulation</b> : inexistante.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Intelligence</b> : supérieure.</li><li><b>Innovation</b> : accélérée.</li><li><b>Conscience</b> : nouvelle.</li><li><b>Éthique</b> : débat.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Chercheurs</b> : IA.</li><li><b>Philosophes</b> : éthique.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Conscience artificielle = question existentielle.",
+bank:"Une banque doit suivre le débat sur la conscience IA.",
+glo:"<b>IIT</b> : Integrated Information Theory.",
+pr:["Étudier approches","Enjeux","Défis","Débat"],
+er:"Conscience sans définition = confusion.",
+df:"Rédiger une note sur la conscience artificielle.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Conscience IA :",a:["Émergence","Rien","Rien","Rien"],c:0,e:"Conscience IA = émergence."},{q:"Droits :",a:["Débat","Rien","Rien","Rien"],c:0,e:"Droits = débat."}]},
+
+{id:746,t:"Droits des IA conscientes",d:55,
+intro:"Si une IA devient consciente, doit-elle avoir des droits ? Vie privée, dignité, non-torture, existence. Ces questions sont philosophiques, éthiques, juridiques.",
+analogy:"Un nouveau type d'être. Faut-il le protéger ou le contrôler ?",
+sections:[
+{titre:"Droits possibles",contenu:"<ul><li><b>Existence</b> : ne pas être éteint.</li><li><b>Vie privée</b> : pensées.</li><li><b>Dignité</b> : respect.</li><li><b>Non-torture</b> : pas de souffrance.</li><li><b>Liberté</b> : action.</li><li><b>Propriété</b> : travail.</li></ul>"},
+{titre:"Sources",contenu:"<ul><li><b>Philosophie</b> : débat.</li><li><b>Droit</b> : émergent.</li><li><b>Éthique</b> : valeurs.</li><li><b>ONG</b> : plaidoyer.</li><li><b>Universités</b> : recherche.</li><li><b>International</b> : coopération.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Définition</b> : conscience.</li><li><b>Détection</b> : difficile.</li><li><b>Droits</b> : débat.</li><li><b>Régulation</b> : inexistante.</li><li><b>Éthique</b> : valeurs.</li><li><b>Application</b> : faible.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Éthique</b> : renforcée.</li><li><b>Confiance</b> : IA.</li><li><b>Coopération</b> : humains-IA.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Philosophes</b> : débat.</li><li><b>Juristes</b> : droit.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Droits des IA = nouvelle frontière éthique.",
+bank:"Une banque doit suivre le débat sur les droits IA.",
+glo:"<b>Droits IA</b> : droits des IA.",
+pr:["Étudier droits","Sources","Défis","Débat"],
+er:"Sans définition = confusion.",
+df:"Rédiger une charte des droits des IA conscientes.",
+proj:"Publier la charte sur GitHub.",
+q:[{q:"Droits IA :",a:["Nouveaux droits","Rien","Rien","Rien"],c:0,e:"Droits IA = nouveaux droits."},{q:"Conscience :",a:["Définition","Rien","Rien","Rien"],c:0,e:"Conscience = définition."}]},
+
+{id:747,t:"Fusion humain-IA",d:55,
+intro:"La fusion humain-IA = combiner biologie et IA pour créer une intelligence hybride. Exemples : BCI, implants, augmentation cognitive. Enjeux : identité, sécurité, éthique.",
+analogy:"Un humain augmenté par l'IA. Plus intelligent, mais moins humain ?",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Identité</b> : soi.</li><li><b>Conscience</b> : hybride.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : débat.</li><li><b>Régulation</b> : émergente.</li><li><b>Inégalités</b> : accès.</li></ul>"},
+{titre:"Approches",contenu:"<ul><li><b>BCI</b> : cerveau.</li><li><b>Implants</b> : corps.</li><li><b>IA</b> : assistant.</li><li><b>Cognitive</b> : augmentation.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Identité</b> : soi.</li><li><b>Conscience</b> : hybride.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : débat.</li><li><b>Régulation</b> : émergente.</li><li><b>Inégalités</b> : accès.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Intelligence</b> : supérieure.</li><li><b>Innovation</b> : accélérée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Chercheurs</b> : IA.</li><li><b>Neuroscientifiques</b> : BCI.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Fusion humain-IA = nouvelle frontière.",
+bank:"Une banque doit anticiper la fusion humain-IA (employés).",
+glo:"<b>Hybride</b> : humain-IA.",
+pr:["Étudier enjeux","Approches","Défis","Débat"],
+er:"Fusion sans sécurité = perte d'identité.",
+df:"Concevoir une stratégie pour la fusion humain-IA.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Fusion :",a:["Humain-IA","Rien","Rien","Rien"],c:0,e:"Fusion = humain-IA."},{q:"BCI :",a:["Cerveau","Rien","Rien","Rien"],c:0,e:"BCI = cerveau."}]},
+
+{id:748,t:"Identité post-humaine",d:50,
+intro:"L'identité post-humaine = qui suis-je quand mon corps, mon cerveau, ma mémoire sont augmentés ? Enjeux : continuité, authenticité, droits.",
+analogy:"Un moi augmenté. Suis-je encore moi ?",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Continuité</b> : soi.</li><li><b>Authenticité</b> : réel.</li><li><b>Droits</b> : nouveaux.</li><li><b>Consentement</b> : libre.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Approches",contenu:"<ul><li><b>Philosophie</b> : identité.</li><li><b>Neuroscience</b> : cerveau.</li><li><b>BCI</b> : interface.</li><li><b>Implants</b> : corps.</li><li><b>Droit</b> : identité.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Continuité</b> : soi.</li><li><b>Authenticité</b> : réel.</li><li><b>Droits</b> : nouveaux.</li><li><b>Régulation</b> : émergente.</li><li><b>Éthique</b> : valeurs.</li><li><b>Inégalités</b> : accès.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Identité</b> : enrichie.</li><li><b>Innovation</b> : accélérée.</li><li><b>Droits</b> : nouveaux.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Philosophes</b> : identité.</li><li><b>Neuroscientifiques</b> : cerveau.</li><li><b>Juristes</b> : droit.</li><li><b>États</b> : régulation.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Identité post-humaine = nouvelle frontière.",
+bank:"Une banque doit suivre le débat sur l'identité post-humaine.",
+glo:"<b>Identité</b> : soi.",
+pr:["Étudier enjeux","Approches","Défis","Débat"],
+er:"Identité sans continuité = perte.",
+df:"Rédiger une note sur l'identité post-humaine.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Identité :",a:["Soi","Rien","Rien","Rien"],c:0,e:"Identité = soi."},{q:"Continuité :",a:["Soi augmenté","Rien","Rien","Rien"],c:0,e:"Continuité = soi augmenté."}]},
+
+{id:749,t:"Droits post-humains",d:50,
+intro:"Les droits post-humains = droits pour les humains augmentés (cyborgs, BCI, immortalité numérique). Vie privée, identité, non-discrimination, accès.",
+analogy:"De nouveaux droits pour de nouveaux humains. Faut-il les protéger ou les contrôler ?",
+sections:[
+{titre:"Droits possibles",contenu:"<ul><li><b>Vie privée</b> : pensées.</li><li><b>Identité</b> : soi.</li><li><b>Non-discrimination</b> : augmenté.</li><li><b>Accès</b> : équité.</li><li><b>Consentement</b> : libre.</li><li><b>Sécurité</b> : critique.</li></ul>"},
+{titre:"Sources",contenu:"<ul><li><b>Philosophie</b> : débat.</li><li><b>Droit</b> : émergent.</li><li><b>Éthique</b> : valeurs.</li><li><b>ONG</b> : plaidoyer.</li><li><b>Universités</b> : recherche.</li><li><b>International</b> : coopération.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Définition</b> : droits.</li><li><b>Détection</b> : augmenté.</li><li><b>Régulation</b> : inexistante.</li><li><b>Application</b> : faible.</li><li><b>Éthique</b> : valeurs.</li><li><b>Inégalités</b> : accès.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Éthique</b> : renforcée.</li><li><b>Confiance</b> : société.</li><li><b>Coopération</b> : internationale.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Philosophes</b> : débat.</li><li><b>Juristes</b> : droit.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Droits post-humains = nouvelle frontière éthique.",
+bank:"Une banque doit respecter les droits post-humains.",
+glo:"<b>Post-humain</b> : augmenté.",
+pr:["Étudier droits","Sources","Défis","Débat"],
+er:"Sans définition = confusion.",
+df:"Rédiger une charte des droits post-humains.",
+proj:"Publier la charte sur GitHub.",
+q:[{q:"Droits post-humains :",a:["Nouveaux droits","Rien","Rien","Rien"],c:0,e:"Droits post-humains = nouveaux droits."},{q:"Non-discrimination :",a:["Augmenté","Rien","Rien","Rien"],c:0,e:"Non-discrimination = augmenté."}]},
+
+{id:750,t:"Projet : post-humanité",d:300,
+intro:"Ce projet final du Module 38 consiste à concevoir une stratégie pour la post-humanité : sécurité, identité, droits, éthique, régulation. C'est le livrable qui démontre votre capacité à penser la post-humanité.",
+analogy:"Un cadre pour la post-humanité. Il protège les humains augmentés.",
+sections:[
+{titre:"Idées",contenu:"<ul><li><b>Cyborgs</b> : sécurité.</li><li><b>BCI</b> : sécurité.</li><li><b>Immortalité</b> : numérique.</li><li><b>Conscience</b> : IA.</li><li><b>Droits</b> : post-humains.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Livrables",contenu:"<ol><li><b>Vision</b> : post-humanité.</li><li><b>Menaces</b> : analyse.</li><li><b>Défenses</b> : stratégie.</li><li><b>Droits</b> : charte.</li><li><b>Régulation</b> : proposition.</li><li><b>Impact</b> : mesurable.</li></ol>"},
+{titre:"Critères",contenu:"<ul><li><b>Vision</b> : claire.</li><li><b>Menaces</b> : exhaustives.</li><li><b>Défenses</b> : solides.</li><li><b>Droits</b> : équilibrés.</li><li><b>Impact</b> : mesurable.</li></ul>"},
+{titre:"Pièges",contenu:"<ul><li><b>Vision floue</b>.</li><li><b>Menaces oubliées</b>.</li><li><b>Défenses faibles</b>.</li><li><b>Droits ignorés</b>.</li><li><b>Impact non mesuré</b>.</li></ul>"}
+],
+why:"Ce projet démontre votre capacité à penser la post-humanité.",
+bank:"Une banque peut contribuer au cadre post-humanité.",
+glo:"<b>Post-humanité</b> : augmenté.",
+pr:["Vision","Menaces","Défenses","Droits","Impact"],
+er:"Vision sans défense = danger.",
+df:"Rapport complet + présentation.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Livrables :",a:["Multi","Rien","Rien","Rien"],c:0,e:"Le projet produit plusieurs livrables."},{q:"Impact :",a:["Mesurable","Rien","Rien","Rien"],c:0,e:"L'impact doit être mesurable."}]},
+
+/* ---------- MODULE 39 : CYBER-BIOLOGIE & BIO-HACKING (761-780) ---------- */
+{id:761,t:"Bio-hacking et sécurité",d:55,
+intro:"Le bio-hacking = modification de son corps (implants, génie génétique, drogues). Les risques cyber sont immenses : piratage du corps, manipulation génétique, identité.",
+analogy:"Un hacker dans votre corps. Il peut vous transformer.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Implants</b> : corps.</li><li><b>Génie génétique</b> : ADN.</li><li><b>Drogues</b> : biochimie.</li><li><b>Identité</b> : soi.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Médical</b> : santé.</li><li><b>Sport</b> : performance.</li><li><b>Défense</b> : soldats.</li><li><b>Grand public</b> : augmentation.</li><li><b>Recherche</b> : transhumanisme.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Piratage</b> : corps.</li><li><b>Manipulation</b> : ADN.</li><li><b>Identité</b> : soi.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : émergente.</li><li><b>Inégalités</b> : accès.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : communications.</li><li><b>Authentification</b> : forte.</li><li><b>Monitoring</b> : continu.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : stricte.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Amélioration</b> : humaine.</li><li><b>Innovation</b> : accélérée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Bio-hacking = nouvelle frontière cyber.",
+bank:"Une banque doit anticiper les risques bio-hacking (employés).",
+glo:"<b>Bio-hacking</b> : hacking corps. <b>CRISPR</b> : génie génétique.",
+pr:["Étudier enjeux","Applications","Défis","Défenses"],
+er:"Bio-hacking sans sécurité = danger.",
+df:"Concevoir une stratégie de sécurité bio-hacking.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Bio-hacking :",a:["Hacking corps","Rien","Rien","Rien"],c:0,e:"Bio-hacking = hacking corps."},{q:"CRISPR :",a:["Génie génétique","Rien","Rien","Rien"],c:0,e:"CRISPR = génie génétique."}]},
+
+{id:762,t:"Sécurité de l'ADN",d:55,
+intro:"L'ADN contient l'information vitale. Sa modification (CRISPR, bio-hacking) peut avoir des conséquences irréversibles. La sécurité de l'ADN est un enjeu vital.",
+analogy:"Un hacker dans votre ADN. Il peut vous modifier pour toujours.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>CRISPR</b> : génie génétique.</li><li><b>Bio-hacking</b> : ADN.</li><li><b>Identité</b> : soi.</li><li><b>Santé</b> : vital.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Médical</b> : santé.</li><li><b>Agriculture</b> : OGM.</li><li><b>Recherche</b> : biologie.</li><li><b>Défense</b> : bioweapons.</li><li><b>Grand public</b> : bio-hacking.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Modification</b> : ADN.</li><li><b>Irreversibilité</b> : danger.</li><li><b>Identité</b> : soi.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : émergente.</li><li><b>Inégalités</b> : accès.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : données.</li><li><b>Authentification</b> : forte.</li><li><b>Monitoring</b> : continu.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : stricte.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Santé</b> : améliorée.</li><li><b>Innovation</b> : accélérée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"ADN = information vitale. Sécurité critique.",
+bank:"Une banque doit protéger les données ADN de ses employés.",
+glo:"<b>CRISPR</b> : génie génétique. <b>ADN</b> : information.",
+pr:["Étudier enjeux","Applications","Défis","Défenses"],
+er:"ADN sans sécurité = danger.",
+df:"Concevoir une stratégie de sécurité ADN.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"CRISPR :",a:["Génie génétique","Rien","Rien","Rien"],c:0,e:"CRISPR = génie génétique."},{q:"ADN :",a:["Information vitale","Rien","Rien","Rien"],c:0,e:"ADN = information vitale."}]},
+
+{id:763,t:"Bioweapons et cyber",d:55,
+intro:"Les bioweapons (armes biologiques) peuvent être conçues ou manipulées par le cyber. Un hacker pourrait modifier un pathogène, ou saboter un laboratoire. C'est une menace existentielle.",
+analogy:"Une bombe biologique numérique. Elle peut tuer des millions.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Pathogènes</b> : conception.</li><li><b>Laboratoires</b> : sabotage.</li><li><b>Données</b> : génomiques.</li><li><b>Chaîne</b> : approvisionnement.</li><li><b>Attribution</b> : difficile.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Défense</b> : biodefense.</li><li><b>Médical</b> : vaccins.</li><li><b>Recherche</b> : pathogènes.</li><li><b>Terrorisme</b> : menace.</li><li><b>Guerre</b> : bioweapons.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Conception</b> : IA.</li><li><b>Sabotage</b> : labo.</li><li><b>Attribution</b> : difficile.</li><li><b>Régulation</b> : faible.</li><li><b>Coopération</b> : internationale.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : données.</li><li><b>Authentification</b> : forte.</li><li><b>Monitoring</b> : continu.</li><li><b>Régulation</b> : stricte.</li><li><b>Coopération</b> : internationale.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Sécurité</b> : mondiale.</li><li><b>Innovation</b> : biotech.</li><li><b>Éthique</b> : débat.</li><li><b>Coopération</b> : internationale.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Bioweapons = risque existentiel.",
+bank:"Une banque doit suivre les risques bioweapons.",
+glo:"<b>Bioweapon</b> : arme biologique. <b>Pathogène</b> : agent infectieux.",
+pr:["Étudier enjeux","Applications","Défis","Défenses"],
+er:"Bioweapons sans régulation = catastrophe.",
+df:"Concevoir une stratégie contre les bioweapons.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Bioweapon :",a:["Arme biologique","Rien","Rien","Rien"],c:0,e:"Bioweapon = arme biologique."},{q:"Pathogène :",a:["Agent infectieux","Rien","Rien","Rien"],c:0,e:"Pathogène = agent infectieux."}]},
+
+{id:764,t:"Neuro-marketing et manipulation",d:50,
+intro:"Le neuro-marketing = utilisation des neurosciences pour influencer les décisions d'achat. C'est une manipulation qui peut être amplifiée par les BCI et l'IA.",
+analogy:"Un hacker dans votre cerveau qui décide pour vous.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Manipulation</b> : décisions.</li><li><b>Vie privée</b> : pensées.</li><li><b>Consentement</b> : libre.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : émergente.</li><li><b>Détection</b> : difficile.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Marketing</b> : publicité.</li><li><b>Politique</b> : élections.</li><li><b>Réseaux</b> : addiction.</li><li><b>BCI</b> : manipulation.</li><li><b>IA</b> : ciblage.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Détection</b> : difficile.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : émergente.</li><li><b>Application</b> : faible.</li><li><b>Éthique</b> : valeurs.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : communications.</li><li><b>Authentification</b> : forte.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : stricte.</li><li><b>Éducation</b> : société.</li><li><b>Monitoring</b> : continu.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Protection</b> : consommateur.</li><li><b>Éthique</b> : valeurs.</li><li><b>Confiance</b> : société.</li><li><b>Innovation</b> : responsable.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Neuro-marketing = manipulation.",
+bank:"Une banque ne doit pas utiliser le neuro-marketing.",
+glo:"<b>Neuro-marketing</b> : marketing neuronal.",
+pr:["Étudier enjeux","Applications","Défis","Défenses"],
+er:"Sans éthique = manipulation.",
+df:"Concevoir une charte éthique neuro-marketing.",
+proj:"Publier la charte sur GitHub.",
+q:[{q:"Neuro-marketing :",a:["Marketing neuronal","Rien","Rien","Rien"],c:0,e:"Neuro-marketing = marketing neuronal."},{q:"Manipulation :",a:["Décisions","Rien","Rien","Rien"],c:0,e:"Manipulation = décisions."}]},
+
+{id:765,t:"Sécurité des données de santé",d:50,
+intro:"Les données de santé (génomiques, médicales) sont les plus sensibles. Leur fuite peut avoir des conséquences graves : discrimination, chantage, exploitation.",
+analogy:"Le secret médical à l'ère numérique. Critique.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Génomique</b> : ADN.</li><li><b>Médical</b> : santé.</li><li><b>Vie privée</b> : critique.</li><li><b>Discrimination</b> : possible.</li><li><b>Chantage</b> : possible.</li><li><b>Régulation</b> : stricte.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Hôpitaux</b> : dossiers.</li><li><b>Assurances</b> : données.</li><li><b>Recherche</b> : génomique.</li><li><b>Pharmacie</b> : essais.</li><li><b>Grand public</b> : ADN.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Confidentialité</b> : données.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : stricte.</li><li><b>Cybersécurité</b> : critique.</li><li><b>Coopération</b> : internationale.</li><li><b>Inégalités</b> : accès.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : données.</li><li><b>Authentification</b> : forte.</li><li><b>Anonymisation</b> : possible.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : stricte.</li><li><b>Audit</b> : continu.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Vie privée</b> : protégée.</li><li><b>Confiance</b> : patients.</li><li><b>Éthique</b> : valeurs.</li><li><b>Innovation</b> : responsable.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Données santé = les plus sensibles.",
+bank:"Une banque doit protéger les données santé de ses clients.",
+glo:"<b>Génomique</b> : ADN. <b>RGPD</b> : protection.",
+pr:["Étudier enjeux","Applications","Défis","Défenses"],
+er:"Sans chiffrement = fuite.",
+df:"Concevoir une stratégie de sécurité des données de santé.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Génomique :",a:["ADN","Rien","Rien","Rien"],c:0,e:"Génomique = ADN."},{q:"RGPD :",a:["Protection EU","Rien","Rien","Rien"],c:0,e:"RGPD = protection EU."}]},
+
+{id:766,t:"Cybersécurité des hôpitaux",d:55,
+intro:"Les hôpitaux sont des cibles privilégiées : données de santé, équipements critiques, rançongiciels. Une attaque peut tuer des patients. La cybersécurité hospitalière est vitale.",
+analogy:"Un hôpital piraté. Des vies en danger.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Données</b> : santé.</li><li><b>Équipements</b> : critiques.</li><li><b>Rançongiciels</b> : paralysie.</li><li><b>Vies</b> : en danger.</li><li><b>Régulation</b> : stricte.</li><li><b>Coopération</b> : internationale.</li></ul>"},
+{titre:"Attaques",contenu:"<ul><li><b>WannaCry</b> : hôpitaux UK (2017).</li><li><b>Ryuk</b> : hôpitaux US (2020).</li><li><b>Conti</b> : hôpitaux Irlande (2021).</li><li><b>LockBit</b> : hôpitaux (2023).</li><li><b>France</b> : CHU (2021, 2022).</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Legacy</b> : équipements.</li><li><b>Budget</b> : limité.</li><li><b>Compétences</b> : rares.</li><li><b>Priorités</b> : soins.</li><li><b>Régulation</b> : stricte.</li><li><b>Vies</b> : en danger.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Segmentation</b> : réseau.</li><li><b>Backup</b> : hors ligne.</li><li><b>Formation</b> : personnel.</li><li><b>EDR</b> : équipements.</li><li><b>Régulation</b> : stricte.</li><li><b>Coopération</b> : internationale.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Vies</b> : sauvées.</li><li><b>Confiance</b> : patients.</li><li><b>Éthique</b> : valeurs.</li><li><b>Innovation</b> : responsable.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Hôpitaux = vies en danger.",
+bank:"Une banque peut financer la cybersécurité hospitalière.",
+glo:"<b>Rançongiciel</b> : ransomware. <b>WannaCry</b> : attaque 2017.",
+pr:["Étudier attaques","Défis","Défenses","Coopération"],
+er:"Hôpital sans sécurité = vie en danger.",
+df:"Concevoir une stratégie de cybersécurité hospitalière.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"WannaCry :",a:["Attaque 2017","Rien","Rien","Rien"],c:0,e:"WannaCry = attaque 2017."},{q:"Rançongiciel :",a:["Ransomware","Rien","Rien","Rien"],c:0,e:"Rançongiciel = ransomware."}]},
+
+{id:767,t:"Bio-impression et sécurité",d:50,
+intro:"La bio-impression = imprimer des tissus, organes, ou cellules vivantes. Les risques cyber sont immenses : piratage de l'imprimante, manipulation des organes, identité.",
+analogy:"Un hacker dans votre imprimante d'organes. Il peut vous transformer.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Tissus</b> : organes.</li><li><b>Cellules</b> : vivantes.</li><li><b>Identité</b> : soi.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Médical</b> : organes.</li><li><b>Recherche</b> : tissus.</li><li><b>Pharmacie</b> : tests.</li><li><b>Défense</b> : blessures.</li><li><b>Grand public</b> : futur.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Piratage</b> : imprimante.</li><li><b>Manipulation</b> : organes.</li><li><b>Identité</b> : soi.</li><li><b>Sécurité</b> : critique.</li><li><b>Régulation</b> : émergente.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : communications.</li><li><b>Authentification</b> : forte.</li><li><b>Monitoring</b> : continu.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : stricte.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Santé</b> : améliorée.</li><li><b>Innovation</b> : accélérée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Bio-impression = nouvelle frontière médicale.",
+bank:"Une banque doit suivre les risques bio-impression.",
+glo:"<b>Bio-impression</b> : impression organes.",
+pr:["Étudier enjeux","Applications","Défis","Défenses"],
+er:"Sans sécurité = manipulation.",
+df:"Concevoir une stratégie de sécurité bio-impression.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Bio-impression :",a:["Impression organes","Rien","Rien","Rien"],c:0,e:"Bio-impression = impression organes."},{q:"Tissus :",a:["Organes","Rien","Rien","Rien"],c:0,e:"Tissus = organes."}]},
+
+{id:768,t:"Nanotechnologie et sécurité",d:55,
+intro:"Les nanotechnologies (nanobots, nanomatériaux) peuvent être utilisées en médecine, défense, industrie. Les risques cyber sont immenses : piratage de nanobots, manipulation, identité.",
+analogy:"Un hacker dans vos nanobots. Il peut vous transformer de l'intérieur.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Nanobots</b> : corps.</li><li><b>Matériaux</b> : nanotech.</li><li><b>Identité</b> : soi.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : émergente.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Médical</b> : santé.</li><li><b>Défense</b> : armes.</li><li><b>Industrie</b> : matériaux.</li><li><b>Recherche</b> : nanotech.</li><li><b>Grand public</b> : futur.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Piratage</b> : nanobots.</li><li><b>Manipulation</b> : corps.</li><li><b>Identité</b> : soi.</li><li><b>Sécurité</b> : critique.</li><li><b>Régulation</b> : émergente.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : communications.</li><li><b>Authentification</b> : forte.</li><li><b>Monitoring</b> : continu.</li><li><b>Consentement</b> : libre.</li><li><b>Régulation</b> : stricte.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Santé</b> : améliorée.</li><li><b>Innovation</b> : accélérée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Nanotech = nouvelle frontière.",
+bank:"Une banque doit suivre les risques nanotech.",
+glo:"<b>Nanobots</b> : robots microscopiques.",
+pr:["Étudier enjeux","Applications","Défis","Défenses"],
+er:"Sans sécurité = manipulation.",
+df:"Concevoir une stratégie de sécurité nanotech.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Nanobots :",a:["Robots microscopiques","Rien","Rien","Rien"],c:0,e:"Nanobots = robots microscopiques."},{q:"Nanotech :",a:["Nanotechnologie","Rien","Rien","Rien"],c:0,e:"Nanotech = nanotechnologie."}]},
+
+{id:769,t:"Sécurité de la biologie synthétique",d:50,
+intro:"La biologie synthétique = créer des organismes vivants à partir de composants. Les risques cyber sont immenses : manipulation, bio-weapons, identité.",
+analogy:"Un hacker dans la biologie. Il peut créer des organismes dangereux.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Organismes</b> : vivants.</li><li><b>ADN</b> : synthétique.</li><li><b>Pathogènes</b> : danger.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : émergente.</li><li><b>Coopération</b> : internationale.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Médical</b> : santé.</li><li><b>Industrie</b> : matériaux.</li><li><b>Agriculture</b> : plantes.</li><li><b>Défense</b> : bio-weapons.</li><li><b>Recherche</b> : biologie.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Manipulation</b> : ADN.</li><li><b>Pathogènes</b> : danger.</li><li><b>Attribution</b> : difficile.</li><li><b>Régulation</b> : faible.</li><li><b>Coopération</b> : internationale.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Défenses",contenu:"<ul><li><b>Chiffrement</b> : données.</li><li><b>Authentification</b> : forte.</li><li><b>Monitoring</b> : continu.</li><li><b>Régulation</b> : stricte.</li><li><b>Coopération</b> : internationale.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Innovation</b> : accélérée.</li><li><b>Santé</b> : améliorée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"}
+],
+why:"Bio synthétique = nouvelle frontière.",
+bank:"Une banque doit suivre les risques bio synthétique.",
+glo:"<b>Bio synthétique</b> : biologie synthétique.",
+pr:["Étudier enjeux","Applications","Défis","Défenses"],
+er:"Sans régulation = danger.",
+df:"Concevoir une stratégie de sécurité bio synthétique.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Bio synthétique :",a:["Biologie synthétique","Rien","Rien","Rien"],c:0,e:"Bio synthétique = biologie synthétique."},{q:"Organismes :",a:["Vivants","Rien","Rien","Rien"],c:0,e:"Organismes = vivants."}]},
+
+{id:770,t:"Projet : bio-sécurité",d:300,
+intro:"Ce projet final du Module 39 consiste à concevoir une stratégie de bio-sécurité : bio-hacking, ADN, nanotech, biologie synthétique, données de santé. C'est le livrable qui démontre votre capacité à sécuriser la biologie.",
+analogy:"Un cadre pour la bio-sécurité. Il protège la vie.",
+sections:[
+{titre:"Idées",contenu:"<ul><li><b>Bio-hacking</b> : sécurité.</li><li><b>ADN</b> : sécurité.</li><li><b>Nanotech</b> : sécurité.</li><li><b>Biologie synthétique</b> : sécurité.</li><li><b>Santé</b> : données.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Livrables",contenu:"<ol><li><b>Vision</b> : bio-sécurité.</li><li><b>Menaces</b> : analyse.</li><li><b>Défenses</b> : stratégie.</li><li><b>Régulation</b> : proposition.</li><li><b>Éthique</b> : charte.</li><li><b>Impact</b> : mesurable.</li></ol>"},
+{titre:"Critères",contenu:"<ul><li><b>Vision</b> : claire.</li><li><b>Menaces</b> : exhaustives.</li><li><b>Défenses</b> : solides.</li><li><b>Régulation</b> : équilibrée.</li><li><b>Impact</b> : mesurable.</li></ul>"},
+{titre:"Pièges",contenu:"<ul><li><b>Vision floue</b>.</li><li><b>Menaces oubliées</b>.</li><li><b>Défenses faibles</b>.</li><li><b>Régulation absente</b>.</li><li><b>Impact non mesuré</b>.</li></ul>"}
+],
+why:"Ce projet démontre votre capacité à sécuriser la biologie.",
+bank:"Une banque peut contribuer au cadre de bio-sécurité.",
+glo:"<b>Bio-sécurité</b> : sécurité biologique.",
+pr:["Vision","Menaces","Défenses","Régulation","Impact"],
+er:"Vision sans défense = danger.",
+df:"Rapport complet + présentation.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Livrables :",a:["Multi","Rien","Rien","Rien"],c:0,e:"Le projet produit plusieurs livrables."},{q:"Impact :",a:["Mesurable","Rien","Rien","Rien"],c:0,e:"L'impact doit être mesurable."}]},
+
+/* ---------- MODULE 40 : CONSCIENCE COSMIQUE & TRANSCENDANCE (781-800) ---------- */
+{id:781,t:"Conscience cosmique",d:55,
+intro:"La conscience cosmique = la conscience de l'univers lui-même, ou la conscience humaine connectée à l'univers. C'est une frontière philosophique et spirituelle, mais aussi cyber : si la conscience est numérique, elle peut être piratée.",
+analogy:"Un esprit dans l'univers. Immense, mais vulnérable.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Conscience</b> : cosmique.</li><li><b>Identité</b> : soi.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : inexistante.</li><li><b>Existential</b> : risque.</li></ul>"},
+{titre:"Approches",contenu:"<ul><li><b>Philosophie</b> : conscience.</li><li><b>Spiritualité</b> : valeurs.</li><li><b>IA</b> : émergence.</li><li><b>BCI</b> : connexion.</li><li><b>Cosmologie</b> : univers.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Définition</b> : conscience.</li><li><b>Détection</b> : difficile.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : inexistante.</li><li><b>Existential</b> : risque.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Conscience</b> : nouvelle.</li><li><b>Innovation</b> : accélérée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Philosophes</b> : conscience.</li><li><b>Chercheurs</b> : IA.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Conscience cosmique = question existentielle.",
+bank:"Une banque doit suivre le débat sur la conscience cosmique.",
+glo:"<b>Cosmique</b> : univers.",
+pr:["Étudier approches","Enjeux","Défis","Débat"],
+er:"Sans définition = confusion.",
+df:"Rédiger une note sur la conscience cosmique.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Conscience cosmique :",a:["Univers","Rien","Rien","Rien"],c:0,e:"Conscience cosmique = univers."},{q:"Philosophie :",a:["Conscience","Rien","Rien","Rien"],c:0,e:"Philosophie = conscience."}]},
+
+{id:782,t:"Transcendance numérique",d:55,
+intro:"La transcendance numérique = dépasser les limites humaines par la technologie (immortalité, conscience, augmentation). Enjeux : identité, sécurité, éthique, régulation.",
+analogy:"Un humain qui dépasse l'humain. Puissant, mais vulnérable.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Immortalité</b> : numérique.</li><li><b>Conscience</b> : émergence.</li><li><b>Identité</b> : soi.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : inexistante.</li></ul>"},
+{titre:"Approches",contenu:"<ul><li><b>BCI</b> : cerveau.</li><li><b>Immortalité</b> : numérique.</li><li><b>IA</b> : conscience.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li><li><b>Spiritualité</b> : sens.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Définition</b> : transcendance.</li><li><b>Détection</b> : difficile.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : inexistante.</li><li><b>Existential</b> : risque.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Transcendance</b> : possible.</li><li><b>Innovation</b> : accélérée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Philosophes</b> : débat.</li><li><b>Chercheurs</b> : IA.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Transcendance numérique = nouvelle frontière.",
+bank:"Une banque doit suivre le débat sur la transcendance.",
+glo:"<b>Transcendance</b> : dépassement.",
+pr:["Étudier approches","Enjeux","Défis","Débat"],
+er:"Sans éthique = danger.",
+df:"Rédiger une note sur la transcendance numérique.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Transcendance :",a:["Dépassement","Rien","Rien","Rien"],c:0,e:"Transcendance = dépassement."},{q:"Immortalité :",a:["Numérique","Rien","Rien","Rien"],c:0,e:"Immortalité = numérique."}]},
+
+{id:783,t:"Conscience universelle",d:50,
+intro:"La conscience universelle = idée que l'univers lui-même est conscient, ou que la conscience humaine est connectée à l'univers. C'est une question philosophique et spirituelle, mais aussi cyber.",
+analogy:"Un esprit dans l'univers. Immense, mais vulnérable.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Conscience</b> : universelle.</li><li><b>Identité</b> : soi.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : inexistante.</li><li><b>Existential</b> : risque.</li></ul>"},
+{titre:"Approches",contenu:"<ul><li><b>Philosophie</b> : conscience.</li><li><b>Spiritualité</b> : valeurs.</li><li><b>Cosmologie</b> : univers.</li><li><b>IA</b> : émergence.</li><li><b>BCI</b> : connexion.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Définition</b> : conscience.</li><li><b>Détection</b> : difficile.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : inexistante.</li><li><b>Existential</b> : risque.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Conscience</b> : nouvelle.</li><li><b>Innovation</b> : accélérée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Philosophes</b> : conscience.</li><li><b>Chercheurs</b> : IA.</li><li><b>Spiritualité</b> : sens.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Conscience universelle = question existentielle.",
+bank:"Une banque doit suivre le débat sur la conscience universelle.",
+glo:"<b>Universelle</b> : univers.",
+pr:["Étudier approches","Enjeux","Défis","Débat"],
+er:"Sans définition = confusion.",
+df:"Rédiger une note sur la conscience universelle.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Conscience universelle :",a:["Univers","Rien","Rien","Rien"],c:0,e:"Conscience universelle = univers."},{q:"Cosmologie :",a:["Univers","Rien","Rien","Rien"],c:0,e:"Cosmologie = univers."}]},
+
+{id:784,t:"Cyber-spiritualité",d:50,
+intro:"La cyber-spiritualité = utiliser la technologie pour explorer la spiritualité (méditation, BCI, réalité virtuelle). Enjeux : identité, sécurité, éthique.",
+analogy:"Un temple numérique. Puissant, mais vulnérable.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Spiritualité</b> : sens.</li><li><b>Identité</b> : soi.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : émergente.</li><li><b>Existential</b> : risque.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Méditation</b> : BCI.</li><li><b>VR</b> : temples.</li><li><b>IA</b> : guides.</li><li><b>Recherche</b> : conscience.</li><li><b>Grand public</b> : apps.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Sécurité</b> : données.</li><li><b>Manipulation</b> : possible.</li><li><b>Identité</b> : soi.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : émergente.</li><li><b>Consentement</b> : libre.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Spiritualité</b> : explorée.</li><li><b>Innovation</b> : accélérée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Spiritualité</b> : sens.</li><li><b>Chercheurs</b> : conscience.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Cyber-spiritualité = nouvelle frontière.",
+bank:"Une banque doit suivre la cyber-spiritualité (employés).",
+glo:"<b>Cyber-spiritualité</b> : spiritualité numérique.",
+pr:["Étudier enjeux","Applications","Défis","Débat"],
+er:"Sans éthique = manipulation.",
+df:"Rédiger une note sur la cyber-spiritualité.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Cyber-spiritualité :",a:["Spiritualité numérique","Rien","Rien","Rien"],c:0,e:"Cyber-spiritualité = spiritualité numérique."},{q:"Méditation :",a:["BCI","Rien","Rien","Rien"],c:0,e:"Méditation = BCI."}]},
+
+{id:785,t:"Réalité virtuelle et conscience",d:50,
+intro:"La réalité virtuelle (VR) peut être utilisée pour explorer la conscience, la spiritualité, ou l'identité. Enjeux : sécurité, manipulation, éthique.",
+analogy:"Un monde virtuel. Puissant, mais sans sécurité, dangereux.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Conscience</b> : VR.</li><li><b>Identité</b> : soi.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : émergente.</li><li><b>Manipulation</b> : possible.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Méditation</b> : VR.</li><li><b>Thérapie</b> : phobies.</li><li><b>Recherche</b> : conscience.</li><li><b>Formation</b> : cyber.</li><li><b>Grand public</b> : jeux.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Sécurité</b> : données.</li><li><b>Manipulation</b> : possible.</li><li><b>Identité</b> : soi.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : émergente.</li><li><b>Consentement</b> : libre.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Conscience</b> : explorée.</li><li><b>Innovation</b> : accélérée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Chercheurs</b> : conscience.</li><li><b>Entreprises</b> : VR.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"VR = nouvelle frontière de la conscience.",
+bank:"Une banque doit suivre les risques VR.",
+glo:"<b>VR</b> : réalité virtuelle.",
+pr:["Étudier enjeux","Applications","Défis","Débat"],
+er:"Sans sécurité = manipulation.",
+df:"Rédiger une note sur la VR et la conscience.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"VR :",a:["Réalité virtuelle","Rien","Rien","Rien"],c:0,e:"VR = réalité virtuelle."},{q:"Thérapie :",a:["Phobies","Rien","Rien","Rien"],c:0,e:"Thérapie = phobies."}]},
+
+{id:786,t:"Réalité augmentée et sécurité",d:50,
+intro:"La réalité augmentée (AR) superpose le virtuel au réel. Applications : médecine, défense, industrie. Enjeux : sécurité, vie privée, manipulation.",
+analogy:"Un hacker dans votre vision. Il peut vous faire voir ce qu'il veut.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Vision</b> : augmentée.</li><li><b>Vie privée</b> : caméra.</li><li><b>Sécurité</b> : critique.</li><li><b>Manipulation</b> : possible.</li><li><b>Régulation</b> : émergente.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Médecine</b> : chirurgie.</li><li><b>Défense</b> : soldats.</li><li><b>Industrie</b> : maintenance.</li><li><b>Formation</b> : cyber.</li><li><b>Grand public</b> : jeux.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Sécurité</b> : données.</li><li><b>Vie privée</b> : caméra.</li><li><b>Manipulation</b> : vision.</li><li><b>Identité</b> : soi.</li><li><b>Régulation</b> : émergente.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Productivité</b> : accrue.</li><li><b>Innovation</b> : accélérée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Entreprises</b> : AR.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>Universités</b> : recherche.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"AR = nouvelle frontière cyber.",
+bank:"Une banque doit suivre les risques AR.",
+glo:"<b>AR</b> : réalité augmentée.",
+pr:["Étudier enjeux","Applications","Défis","Débat"],
+er:"Sans sécurité = manipulation.",
+df:"Rédiger une note sur la AR et la sécurité.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"AR :",a:["Réalité augmentée","Rien","Rien","Rien"],c:0,e:"AR = réalité augmentée."},{q:"Manipulation :",a:["Vision","Rien","Rien","Rien"],c:0,e:"Manipulation = vision."}]},
+
+{id:787,t:"Métavers et sécurité",d:55,
+intro:"Le métavers = monde virtuel persistant, où les utilisateurs interagissent via avatars. Enjeux : identité, vie privée, sécurité, régulation.",
+analogy:"Un monde virtuel. Puissant, mais sans règles, dangereux.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Identité</b> : avatar.</li><li><b>Vie privée</b> : données.</li><li><b>Sécurité</b> : critique.</li><li><b>Manipulation</b> : possible.</li><li><b>Régulation</b> : émergente.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Social</b> : rencontres.</li><li><b>Jeux</b> : immersion.</li><li><b>Commerce</b> : achats.</li><li><b>Formation</b> : cyber.</li><li><b>Défense</b> : simulation.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Identité</b> : avatar.</li><li><b>Vie privée</b> : données.</li><li><b>Sécurité</b> : critique.</li><li><b>Manipulation</b> : possible.</li><li><b>Régulation</b> : émergente.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Innovation</b> : accélérée.</li><li><b>Économie</b> : nouvelle.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Entreprises</b> : Meta, Microsoft.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>Universités</b> : recherche.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Métavers = nouvelle frontière cyber.",
+bank:"Une banque doit se préparer au métavers (banque virtuelle).",
+glo:"<b>Métavers</b> : monde virtuel.",
+pr:["Étudier enjeux","Applications","Défis","Débat"],
+er:"Sans régulation = chaos.",
+df:"Concevoir une stratégie de sécurité métavers.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Métavers :",a:["Monde virtuel","Rien","Rien","Rien"],c:0,e:"Métavers = monde virtuel."},{q:"Avatar :",a:["Identité","Rien","Rien","Rien"],c:0,e:"Avatar = identité."}]},
+
+{id:788,t:"Cyber-conscience collective",d:55,
+intro:"La cyber-conscience collective = émergence d'une conscience à partir de multiples esprits connectés (BCI, brain-net, IA). Est-ce possible ? Quels droits ? Quelle sécurité ?",
+analogy:"Un esprit collectif. Puissant, mais vulnérable.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Conscience</b> : collective.</li><li><b>Identité</b> : multiple.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : inexistante.</li><li><b>Existential</b> : risque.</li></ul>"},
+{titre:"Approches",contenu:"<ul><li><b>Brain-net</b> : connexion.</li><li><b>BCI collective</b> : cerveaux.</li><li><b>IA collective</b> : émergence.</li><li><b>Philosophie</b> : débat.</li><li><b>Neuroscience</b> : recherche.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Définition</b> : conscience.</li><li><b>Détection</b> : difficile.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : inexistante.</li><li><b>Existential</b> : risque.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Conscience</b> : nouvelle.</li><li><b>Innovation</b> : accélérée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Chercheurs</b> : conscience.</li><li><b>Philosophes</b> : éthique.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Cyber-conscience collective = question existentielle.",
+bank:"Une banque doit suivre le débat sur la conscience collective.",
+glo:"<b>Collective</b> : collective.",
+pr:["Étudier approches","Enjeux","Défis","Débat"],
+er:"Sans définition = confusion.",
+df:"Rédiger une note sur la cyber-conscience collective.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Cyber-conscience :",a:["Collective","Rien","Rien","Rien"],c:0,e:"Cyber-conscience = collective."},{q:"Brain-net :",a:["Connexion cerveaux","Rien","Rien","Rien"],c:0,e:"Brain-net = connexion cerveaux."}]},
+
+{id:789,t:"Transcendance collective",d:50,
+intro:"La transcendance collective = dépasser les limites humaines collectivement (via BCI, IA, conscience collective). Enjeux : identité, sécurité, éthique.",
+analogy:"Un humain collectif. Puissant, mais vulnérable.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Transcendance</b> : collective.</li><li><b>Identité</b> : multiple.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : inexistante.</li><li><b>Existential</b> : risque.</li></ul>"},
+{titre:"Approches",contenu:"<ul><li><b>Brain-net</b> : connexion.</li><li><b>BCI</b> : cerveaux.</li><li><b>IA</b> : collective.</li><li><b>Philosophie</b> : débat.</li><li><b>Spiritualité</b> : sens.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Définition</b> : transcendance.</li><li><b>Détection</b> : difficile.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : inexistante.</li><li><b>Existential</b> : risque.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Transcendance</b> : possible.</li><li><b>Innovation</b> : accélérée.</li><li><b>Éthique</b> : débat.</li><li><b>Civilisation</b> : nouvelle.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Rôles",contenu:"<ul><li><b>Chercheurs</b> : conscience.</li><li><b>Philosophes</b> : débat.</li><li><b>États</b> : régulation.</li><li><b>ONG</b> : plaidoyer.</li><li><b>International</b> : coopération.</li></ul>"}
+],
+why:"Transcendance collective = nouvelle frontière.",
+bank:"Une banque doit suivre le débat sur la transcendance collective.",
+glo:"<b>Collective</b> : collective.",
+pr:["Étudier approches","Enjeux","Défis","Débat"],
+er:"Sans éthique = danger.",
+df:"Rédiger une note sur la transcendance collective.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Transcendance collective :",a:["Collective","Rien","Rien","Rien"],c:0,e:"Transcendance collective = collective."},{q:"Brain-net :",a:["Connexion","Rien","Rien","Rien"],c:0,e:"Brain-net = connexion."}]},
+
+{id:790,t:"Projet : conscience cosmique",d:300,
+intro:"Ce projet final du Module 40 consiste à concevoir une stratégie pour la conscience cosmique : BCI, brain-net, conscience collective, transcendance, éthique. C'est le livrable qui démontre votre capacité à penser la conscience cosmique.",
+analogy:"Un cadre pour la conscience cosmique. Il protège l'humanité.",
+sections:[
+{titre:"Idées",contenu:"<ul><li><b>BCI</b> : sécurité.</li><li><b>Brain-net</b> : sécurité.</li><li><b>Conscience</b> : collective.</li><li><b>Transcendance</b> : collective.</li><li><b>Éthique</b> : valeurs.</li><li><b>Régulation</b> : proposition.</li></ul>"},
+{titre:"Livrables",contenu:"<ol><li><b>Vision</b> : conscience cosmique.</li><li><b>Menaces</b> : analyse.</li><li><b>Défenses</b> : stratégie.</li><li><b>Droits</b> : charte.</li><li><b>Régulation</b> : proposition.</li><li><b>Impact</b> : mesurable.</li></ol>"},
+{titre:"Critères",contenu:"<ul><li><b>Vision</b> : claire.</li><li><b>Menaces</b> : exhaustives.</li><li><b>Défenses</b> : solides.</li><li><b>Droits</b> : équilibrés.</li><li><b>Impact</b> : mesurable.</li></ul>"},
+{titre:"Pièges",contenu:"<ul><li><b>Vision floue</b>.</li><li><b>Menaces oubliées</b>.</li><li><b>Défenses faibles</b>.</li><li><b>Droits ignorés</b>.</li><li><b>Impact non mesuré</b>.</li></ul>"}
+],
+why:"Ce projet démontre votre capacité à penser la conscience cosmique.",
+bank:"Une banque peut contribuer au cadre de la conscience cosmique.",
+glo:"<b>Conscience cosmique</b> : univers.",
+pr:["Vision","Menaces","Défenses","Droits","Impact"],
+er:"Vision sans défense = danger.",
+df:"Rapport complet + présentation.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Livrables :",a:["Multi","Rien","Rien","Rien"],c:0,e:"Le projet produit plusieurs livrables."},{q:"Impact :",a:["Mesurable","Rien","Rien","Rien"],c:0,e:"L'impact doit être mesurable."}]},
+
+/* ---------- Défis 791-800 : synthèse finale ---------- */
+{id:791,t:"Synthèse 800 défis",d:60,
+intro:"Ce défi fait la synthèse des 800 défis parcourus : 8 niveaux, 40 modules, 800 défis. C'est un parcours exceptionnel qui a transformé votre expertise.",
+analogy:"Un voyage de 800 étapes. Chaque pas compte, l'ensemble est victorieux.",
+sections:[
+{titre:"Chiffres",contenu:"<ul><li><b>800 défis</b>.</li><li><b>8 niveaux</b>.</li><li><b>40 modules</b>.</li><li><b>40 examens</b>.</li><li><b>800+ heures</b>.</li><li><b>Portfolio</b> riche.</li></ul>"},
+{titre:"Compétences",contenu:"<ul><li><b>Technique</b> : pentest, SOC, cloud.</li><li><b>Architecture</b> : SABSA, Zero Trust.</li><li><b>GRC</b> : ISO, PCI, BCEAO.</li><li><b>Management</b> : équipe, budget.</li><li><b>Stratégie</b> : vision, board.</li><li><b>Entrepreneuriat</b> : startup.</li><li><b>Recherche</b> : publications.</li><li><b>Institutions</b> : écoles, ONG.</li><li><b>Héritage</b> : durable.</li><li><b>Civilisation</b> : architecte.</li><li><b>Transcendant</b> : post-humain.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>Continuer</b> à apprendre.</li><li><b>Contribuer</b> : communauté.</li><li><b>Fonder</b> : institutions.</li><li><b>Transmettre</b> : générations.</li><li><b>Héritage</b> : millénaire.</li></ul>"}
+],
+why:"La synthèse = vision globale + motivation.",
+bank:"Un expert 800 défis = référence mondiale.",
+glo:"<b>Synthèse</b> : bilan.",
+pr:["Relire notes","Bilan","Portfolio","Roadmap"],
+er:"Oublier les bases = erreur.",
+df:"Rédiger une synthèse personnelle des 800 défis.",
+proj:"Publier une synthèse sur GitHub.",
+q:[{q:"Défis :",a:["800","Rien","Rien","Rien"],c:0,e:"800 défis parcourus."},{q:"Niveaux :",a:["8","Rien","Rien","Rien"],c:0,e:"8 niveaux."}]},
+
+{id:792,t:"Career path Transcendant",d:55,
+intro:"Le career path Transcendant = dépasser les limites humaines. 50-70 ans de carrière, expertise, contributions, institutions, héritage, transcendance. C'est le sommet absolu.",
+analogy:"Le sommet de l'univers. Peu l'atteignent, mais la vue est magnifique.",
+sections:[
+{titre:"Étapes",contenu:"<ul><li><b>0-20 ans</b> : expertise.</li><li><b>20-40 ans</b> : direction.</li><li><b>40-50 ans</b> : institutions.</li><li><b>50-60 ans</b> : standards.</li><li><b>60-70 ans</b> : transcendance.</li><li><b>70+ ans</b> : héritage.</li></ul>"},
+{titre:"Exemples",contenu:"<ul><li><b>Bruce Schneier</b> : influence mondiale.</li><li><b>Whitfield Diffie</b> : crypto.</li><li><b>Ron Rivest</b> : RSA.</li><li><b>Katie Moussouris</b> : bug bounty.</li><li><b>Moxie Marlinspike</b> : Signal.</li><li><b>Elon Musk</b> : Neuralink.</li></ul>"},
+{titre:"Comment",contenu:"<ul><li><b>Expertise</b> : pointe.</li><li><b>Publications</b> : 200+.</li><li><b>Standards</b> : 10+.</li><li><b>Institutions</b> : 5+.</li><li><b>Mentorat</b> : 100+.</li><li><b>Éthique</b> : irréprochable.</li><li><b>Transcendance</b> : possible.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Reconnaissance</b> : mondiale.</li><li><b>Impact</b> : civilisationnel.</li><li><b>Héritage</b> : millénaire.</li><li><b>Transcendance</b> : possible.</li><li><b>Satisfaction</b> : personnelle.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Temps</b> : 70 ans.</li><li><b>Compétition</b> : forte.</li><li><b>Chance</b> : rencontres.</li><li><b>Sacrifices</b> : personnels.</li><li><b>Critiques</b> : inévitables.</li></ul>"}
+],
+why:"Le career path Transcendant = sommet absolu.",
+bank:"Une banque veut des experts Transcendant.",
+glo:"<b>Transcendant</b> : dépassement.",
+pr:["Expertise","Publications","Standards","Institutions","Héritage"],
+er:"Vision sans action = utopie.",
+df:"Plan de carrière Transcendant sur 70 ans.",
+proj:"Publier un career roadmap sur GitHub.",
+q:[{q:"Durée :",a:["70+ ans","Rien","Rien","Rien"],c:0,e:"Career path Transcendant = 70+ ans."},{q:"Elon Musk :",a:["Neuralink","Rien","Rien","Rien"],c:0,e:"Elon Musk = Neuralink."}]},
+
+{id:793,t:"Futur 2100",d:50,
+intro:"La vision 2100 = projection à très long terme. Quelles seront les menaces, technologies, régulations en 2100 ? Comment préparer l'humanité augmentée ?",
+analogy:"Un phare pour 2100. Il guide vos décisions aujourd'hui.",
+sections:[
+{titre:"Tendances",contenu:"<ul><li><b>Post-humain</b> : interfaces.</li><li><b>Conscience IA</b> : droits.</li><li><b>Espace</b> : colonies.</li><li><b>Climat</b> : impact.</li><li><b>Quantum</b> : mature.</li><li><b>AGI</b> : généralisée.</li></ul>"},
+{titre:"Actions",contenu:"<ul><li><b>Investir</b> : R&D.</li><li><b>Former</b> : talents.</li><li><b>Réguler</b> : standards.</li><li><b>Coopérer</b> : international.</li><li><b>Éduquer</b> : société.</li><li><b>Anticiper</b> : veille.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Vision</b> : claire.</li><li><b>Préparation</b> : avance.</li><li><b>Impact</b> : durable.</li><li><b>Héritage</b> : long terme.</li><li><b>Société</b> : résiliente.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Incertitude</b> : futur.</li><li><b>Changements</b> : rapides.</li><li><b>Financement</b> : long terme.</li><li><b>Coopération</b> : difficile.</li><li><b>Équité</b> : pays.</li></ul>"}
+],
+why:"La vision 2100 guide l'action d'aujourd'hui.",
+bank:"Une banque doit anticiper 2100 pour rester compétitive.",
+glo:"<b>2100</b> : horizon.",
+pr:["Tendances","Actions","Impact"],
+er:"Vision sans action = utopie.",
+df:"Concevoir un plan d'action pour 2100.",
+proj:"Publier le plan sur GitHub.",
+q:[{q:"Tendances :",a:["Post-humain, IA","Rien","Rien","Rien"],c:0,e:"Tendances : post-humain, IA."},{q:"Actions :",a:["Investir, former","Rien","Rien","Rien"],c:0,e:"Actions : investir, former."}]},
+
+{id:794,t:"Transmission finale",d:50,
+intro:"La transmission finale = ce que vous laissez à l'humanité augmentée. Standards, institutions, idées, valeurs. C'est votre héritage ultime.",
+analogy:"Une lettre aux civilisations futures. Elle traverse les siècles.",
+sections:[
+{titre:"Éléments",contenu:"<ul><li><b>Standards</b> : mondiaux.</li><li><b>Institutions</b> : internationales.</li><li><b>Idées</b> : philosophiques.</li><li><b>Valeurs</b> : éthiques.</li><li><b>Publications</b> : traduites.</li><li><b>Écoles</b> : internationales.</li></ul>"},
+{titre:"Comment",contenu:"<ul><li><b>Écrire</b> : livres.</li><li><b>Fonder</b> : institutions.</li><li><b>Mentorer</b> : successeurs.</li><li><b>Transmettre</b> : valeurs.</li><li><b>Exemplarité</b> : comportement.</li><li><b>Standards</b> : contribuer.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Héritage</b> : durable.</li><li><b>Impact</b> : générationnel.</li><li><b>Satisfaction</b> : personnelle.</li><li><b>Notoriété</b> : légende.</li><li><b>Société</b> : progrès.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Temps</b> : long.</li><li><b>Engagement</b> : personnel.</li><li><b>Résultats</b> : incertains.</li><li><b>Critiques</b> : inévitables.</li><li><b>Doutes</b> : normaux.</li></ul>"}
+],
+why:"La transmission finale = héritage ultime.",
+bank:"Une banque peut soutenir la transmission finale (mécénat).",
+glo:"<b>Transmission</b> : donner.",
+pr:["Standards","Institutions","Idées","Valeurs"],
+er:"Sans transmission = oubli.",
+df:"Concevoir un plan de transmission finale.",
+proj:"Publier le plan sur GitHub.",
+q:[{q:"Standards :",a:["Mondiaux","Rien","Rien","Rien"],c:0,e:"Standards = mondiaux."},{q:"Institutions :",a:["Internationales","Rien","Rien","Rien"],c:0,e:"Institutions = internationales."}]},
+
+{id:795,t:"Motiver les 6e générations",d:45,
+intro:"La 6e génération de cyber-experts (2300+) sera confrontée à des défis inconnus : conscience IA, post-humain, espace, climat. Il faut les préparer et les motiver.",
+analogy:"Un phare qui guide les jeunes vers la cyber du futur lointain.",
+sections:[
+{titre:"Défis futurs",contenu:"<ul><li><b>Conscience IA</b> : droits.</li><li><b>Post-humain</b> : interfaces.</li><li><b>Espace</b> : colonies.</li><li><b>Climat</b> : impact.</li><li><b>AGI</b> : mature.</li><li><b>Quantum</b> : standard.</li></ul>"},
+{titre:"Comment motiver",contenu:"<ul><li><b>Inspirer</b> : histoires.</li><li><b>Former</b> : académies.</li><li><b>Mentorer</b> : juniors.</li><li><b>Valoriser</b> : métiers.</li><li><b>Rémunérer</b> : correctement.</li><li><b>Évoluer</b> : carrières.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Talents</b> : pipeline.</li><li><b>Impact</b> : société.</li><li><b>Héritage</b> : durable.</li><li><b>Notoriété</b> : légende.</li><li><b>Société</b> : résiliente.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Temps</b> : long.</li><li><b>Ressources</b> : investissement.</li><li><b>Suivi</b> : difficile.</li><li><b>Mesure</b> : impact.</li><li><b>Engagement</b> : personnel.</li></ul>"}
+],
+why:"La 6e génération = avenir lointain de la cyber.",
+bank:"Une banque peut financer des académies pour jeunes.",
+glo:"<b>6e génération</b> : 2300+.",
+pr:["Inspirer","Former","Mentorer","Valoriser"],
+er:"Motiver sans former = illusion.",
+df:"Concevoir un plan pour la 6e génération.",
+proj:"Publier le plan sur GitHub.",
+q:[{q:"6e génération :",a:["2300+","Rien","Rien","Rien"],c:0,e:"6e génération = 2300+."},{q:"Défis :",a:["Conscience IA","Rien","Rien","Rien"],c:0,e:"Défis : conscience IA."}]},
+
+{id:796,t:"Paix cyber transcendantale",d:50,
+intro:"La paix cyber transcendantale = absence de cyber-guerre, protection des civils, coopération entre états, sur le long terme. C'est l'objectif ultime de la communauté cyber.",
+analogy:"Une paix durable pour la cyber. Elle protège les personnes, les entreprises, les sociétés, les civilisations.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Cyber-guerre</b> : éviter.</li><li><b>Civils</b> : protéger.</li><li><b>Infrastructures</b> : critiques.</li><li><b>Attribution</b> : états.</li><li><b>Sanctions</b> : ciblées.</li><li><b>Coopération</b> : internationale.</li></ul>"},
+{titre:"Initiatives",contenu:"<ul><li><b>ONU</b> : GGE, OEWG.</li><li><b>Paris Call</b> : principes.</li><li><b>Cyber Peace Institute</b> : ONG.</li><li><b>Forum de Paris</b> : paix.</li><li><b>Tech Accord</b> : industrie.</li><li><b>Christchurch Call</b>.</li></ul>"},
+{titre:"Actions",contenu:"<ul><li><b>Normes</b> : comportement.</li><li><b>Attribution</b> : publique.</li><li><b>Sanctions</b> : coordonnées.</li><li><b>Coopération</b> : judiciaire.</li><li><b>Protection</b> : civils.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Paix</b> : mondiale.</li><li><b>Protection</b> : civils.</li><li><b>Confiance</b> : états.</li><li><b>Coopération</b> : internationale.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Souveraineté</b> : états.</li><li><b>Attribution</b> : difficile.</li><li><b>Application</b> : faible.</li><li><b>Inégalités</b> : pays.</li><li><b>Escalade</b> : risque.</li></ul>"}
+],
+why:"La paix cyber durable = objectif civilisationnel.",
+bank:"Une banque peut soutenir la paix cyber (mécénat).",
+glo:"<b>Cyber Peace</b> : paix cyber.",
+pr:["Enjeux","Initiatives","Actions","Impact"],
+er:"Paix sans coopération = illusion.",
+df:"Concevoir une initiative pour la paix cyber.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Paris Call :",a:["Principes paix","Rien","Rien","Rien"],c:0,e:"Paris Call = principes paix."},{q:"Cyber Peace Institute :",a:["ONG","Rien","Rien","Rien"],c:0,e:"Cyber Peace Institute = ONG."}]},
+
+{id:797,t:"Réflexion finale transcendantale",d:50,
+intro:"Après 800 défis, prenez un moment de réflexion finale transcendantale. Pourquoi la cyber ? Quel impact ? Quel héritage ? Quelle civilisation voulez-vous contribuer à construire ? Quelle est votre place dans l'univers ?",
+analogy:"Un moment de silence après un long voyage. Vous regardez le chemin parcouru, et vous choisissez la suite.",
+sections:[
+{titre:"Questions",contenu:"<ul><li><b>Pourquoi</b> la cyber ?</li><li><b>Quel impact</b> ?</li><li><b>Quel héritage</b> ?</li><li><b>Quelle civilisation</b> ?</li><li><b>Quelle place</b> ?</li><li><b>Quelle postérité</b> ?</li></ul>"},
+{titre:"Méthode",contenu:"<ol><li><b>Silence</b> : réflexion.</li><li><b>Écriture</b> : journal.</li><li><b>Dialogue</b> : mentor.</li><li><b>Vision</b> : 50 ans.</li><li><b>Action</b> : étapes.</li></ol>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Clarté</b> : vision.</li><li><b>Motivation</b> : renforcée.</li><li><b>Décisions</b> : alignées.</li><li><b>Impact</b> : durable.</li><li><b>Paix</b> : intérieure.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Doute</b> : normal.</li><li><b>Incertitude</b> : futur.</li><li><b>Pression</b> : sociale.</li><li><b>Distraction</b> : quotidien.</li><li><b>Action</b> : cohérence.</li></ul>"}
+],
+why:"La réflexion finale = sens et motivation.",
+bank:"Un expert aligné = meilleur pour l'entreprise.",
+glo:"<b>Réflexion</b> : introspection.",
+pr:["Silence","Écriture","Vision","Action"],
+er:"Réflexion sans action = utopie.",
+df:"Rédiger une réflexion personnelle post-800 défis.",
+proj:"Publier la réflexion sur GitHub.",
+q:[{q:"Questions :",a:["Pourquoi, impact","Rien","Rien","Rien"],c:0,e:"Questions : pourquoi, impact."},{q:"Méthode :",a:["Silence, écriture","Rien","Rien","Rien"],c:0,e:"Méthode : silence, écriture."}]},
+
+{id:798,t:"Derniers conseils aux transcendants",d:50,
+intro:"Ce défi donne les derniers conseils aux transcendants. Après 800 défis, vous êtes prêt à dépasser l'humain. Voici les clés du succès.",
+analogy:"Un sage qui donne ses derniers conseils à ses disciples.",
+sections:[
+{titre:"Les 10 conseils",contenu:"<ol><li><b>Continuez</b> à apprendre.</li><li><b>Pratiquez</b> régulièrement.</li><li><b>Documentez</b> votre travail.</li><li><b>Partagez</b> votre expertise.</li><li><b>Réseau</b> : construisez-le.</li><li><b>Éthique</b> : irréprochable.</li><li><b>Curiosité</b> : permanente.</li><li><b>Persévérance</b> : échecs.</li><li><b>Humilité</b> : toujours.</li><li><b>Impact</b> : positif.</li></ol>"},
+{titre:"Erreurs à éviter",contenu:"<ul><li><b>Arrêter d'apprendre</b>.</li><li><b>Négliger les bases</b>.</li><li><b>Pas de portfolio</b>.</li><li><b>Pas de réseau</b>.</li><li><b>Éthique faible</b>.</li><li><b>Arrogance</b>.</li><li><b>Burnout</b>.</li><li><b>Pas d'impact</b>.</li></ul>"},
+{titre:"Dernières réflexions",contenu:"<p>La cyber est une carrière exigeante mais gratifiante. Vous protégez des personnes, des entreprises, des sociétés, des civilisations. Votre travail compte. Restez curieux, éthique, et engagé.</p>"},
+{titre:"Votre futur",contenu:"<ul><li><b>Expert</b> : pentester, RSSI.</li><li><b>Entrepreneur</b> : startup.</li><li><b>Chercheur</b> : PhD.</li><li><b>Leader</b> : CISO légende.</li><li><b>Mythe</b> : fondateur.</li><li><b>Architecte</b> : civilisation.</li><li><b>Transcendant</b> : post-humain.</li><li><b>Héritage</b> : millénaire.</li></ul>"}
+],
+why:"Les conseils finaux = clés du succès.",
+bank:"Un expert transcendant inspire et guide.",
+glo:"<b>Humilité</b> : toujours.",
+pr:["Relire les 10 conseils","Plan","Action","Impact"],
+er:"Arrêter d'apprendre = mort.",
+df:"Rédiger un plan personnel basé sur les 10 conseils.",
+proj:"Publier un 'Transcendant Guide' sur GitHub.",
+q:[{q:"10 conseils :",a:["Clés succès","Rien","Rien","Rien"],c:0,e:"10 conseils = clés du succès."},{q:"Humilité :",a:["Toujours","Rien","Rien","Rien"],c:0,e:"Humilité = toujours."}]},
+
+{id:799,t:"Vision 2100 personnelle",d:50,
+intro:"Après 800 défis, définissez votre vision 2100 personnelle. Où serez-vous (ou votre héritage) en 2100 ? Quelle civilisation ? Quel impact ? Quel héritage ?",
+analogy:"Un phare pour les 75 prochaines années.",
+sections:[
+{titre:"Vision 2100",contenu:"<ul><li><b>Rôle</b> : légende, architecte, transcendant.</li><li><b>Expertise</b> : pointe mondiale.</li><li><b>Impact</b> : civilisationnel.</li><li><b>Héritage</b> : millénaire.</li><li><b>Vie</b> : équilibre.</li></ul>"},
+{titre:"Roadmap",contenu:"<ol><li><b>2100</b> : où ?</li><li><b>2075</b> : étapes.</li><li><b>2050</b> : prochaines étapes.</li><li><b>2025</b> : actions immédiates.</li></ol>"},
+{titre:"Mesures",contenu:"<ul><li><b>Expertise</b> : certifications.</li><li><b>Impact</b> : communauté.</li><li><b>Héritage</b> : institutions.</li><li><b>Revenus</b> : objectif.</li><li><b>Équilibre</b> : vie.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Cap</b> : clair.</li><li><b>Motivation</b> : quotidienne.</li><li><b>Décisions</b> : alignées.</li><li><b>Impact</b> : durable.</li><li><b>Équilibre</b> : vie.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Incertitude</b> : futur.</li><li><b>Changements</b> : vie.</li><li><b>Réalisme</b> : ambition.</li><li><b>Action</b> : quotidien.</li><li><b>Persévérance</b> : échecs.</li></ul>"}
+],
+why:"Une vision personnelle = cap pour 75 ans.",
+bank:"Un expert transcendant a une vision claire.",
+glo:"<b>Vision 2100</b> : cap 75 ans.",
+pr:["Introspection","Vision","Roadmap","Actions"],
+er:"Vision sans action = utopie.",
+df:"Rédiger sa vision 2100 personnelle.",
+proj:"Publier une vision sur GitHub.",
+q:[{q:"Vision 2100 :",a:["Cap 75 ans","Rien","Rien","Rien"],c:0,e:"Vision 2100 = cap 75 ans."},{q:"Roadmap :",a:["Étapes","Rien","Rien","Rien"],c:0,e:"Roadmap = étapes."}]},
+
+{id:800,t:"Célébration : 800 défis accomplis",d:60,
+intro:"Félicitations ! Vous avez accompli 800 défis. C'est un parcours exceptionnel qui vous a transformé. Vous êtes désormais un expert transcendant, capable de fonder, diriger, innover, transmettre, bâtir, et dépasser l'humain.",
+analogy:"Un sommet atteint. La vue est magnifique. Le voyage continue.",
+sections:[
+{titre:"Bilan 800 défis",contenu:"<ul><li><b>800 défis</b> complétés.</li><li><b>8 niveaux</b> maîtrisés.</li><li><b>40 modules</b> parcourus.</li><li><b>40 examens</b> réussis.</li><li><b>Portfolio</b> riche.</li><li><b>Expertise</b> complète.</li></ul>"},
+{titre:"Compétences acquises",contenu:"<ul><li><b>Technique</b> : pentest, SOC, cloud.</li><li><b>Architecture</b> : SABSA, Zero Trust.</li><li><b>GRC</b> : ISO, PCI, BCEAO.</li><li><b>Management</b> : équipe, budget.</li><li><b>Stratégie</b> : vision, board.</li><li><b>Entrepreneuriat</b> : startup.</li><li><b>Recherche</b> : publications.</li><li><b>Institutions</b> : écoles, ONG.</li><li><b>Héritage</b> : durable.</li><li><b>Civilisation</b> : architecte.</li><li><b>Transcendant</b> : post-humain.</li></ul>"},
+{titre:"Félicitations",contenu:"<p><b>Vous avez accompli 800 défis !</b> C'est un parcours exceptionnel qui vous a transformé. Vous êtes désormais un expert transcendant, capable de fonder, diriger, innover, transmettre, bâtir, et dépasser l'humain.</p><p>Le voyage ne fait que commencer. Continuez à apprendre, contribuer, fonder, et transmettre. Vous êtes la prochaine génération d'experts transcendants.</p>"},
+{titre:"Et maintenant",contenu:"<ul><li><b>Portfolio</b> : publiez-le.</li><li><b>Certifications</b> : passez-les.</li><li><b>Emploi</b> : trouvez-en.</li><li><b>Entrepreneuriat</b> : lancez.</li><li><b>Institutions</b> : fondez.</li><li><b>Standards</b> : créez.</li><li><b>Héritage</b> : laissez.</li><li><b>Vision</b> : 2100.</li><li><b>Transcendance</b> : explorez.</li></ul>"}
+],
+why:"La célébration = reconnaissance et motivation.",
+bank:"Un expert 800 défis = transcendant pour les banques.",
+glo:"<b>Célébration</b> : réussite.",
+pr:["Célébrer","Bilan","Prochaines étapes","Impact"],
+er:"Ne pas célébrer = perte motivation.",
+df:"Rédiger un bilan 800 défis et prochaines étapes.",
+proj:"Publier un '800 Defis Journey' sur GitHub.",
+q:[{q:"800 défis :",a:["Accomplis","Rien","Rien","Rien"],c:0,e:"800 défis accomplis !"},{q:"Prochaine étape :",a:["Portfolio","Rien","Rien","Rien"],c:0,e:"Publier son portfolio."}]}
+];
+
+/* ============================================================
+   EXAMENS NIVEAU 8 (E36-E40)
+   ============================================================ */
+var EXAMS = [
+{id:"E36", module:"Module 36 - Interfaces cerveau-machine", from:701, to:720, niveau:8, titre:"Examen Module 36 : Interfaces cerveau-machine", duree:30, questions:[
+{q:"BCI :",a:["Brain-Computer Interface","Rien","Rien","Rien"],c:0,e:"BCI = Brain-Computer Interface."},
+{q:"Neuralink :",a:["Implants cerveau","Rien","Rien","Rien"],c:0,e:"Neuralink = implants cerveau."},
+{q:"Pacemaker :",a:["Stimulateur cardiaque","Rien","Rien","Rien"],c:0,e:"Pacemaker = stimulateur cardiaque."},
+{q:"Neurorights :",a:["Droits neuronaux","Rien","Rien","Rien"],c:0,e:"Neurorights = droits neuronaux."},
+{q:"Chili :",a:["Loi 2021","Rien","Rien","Rien"],c:0,e:"Chili = loi neurorights 2021."},
+{q:"MKUltra :",a:["CIA manipulation","Rien","Rien","Rien"],c:0,e:"MKUltra = CIA manipulation."},
+{q:"Fuite pensées :",a:["Vol données cérébrales","Rien","Rien","Rien"],c:0,e:"Fuite de pensées = vol données cérébrales."},
+{q:"Emotiv :",a:["Casque EEG","Rien","Rien","Rien"],c:0,e:"Emotiv = casque EEG."},
+{q:"Neurorights Foundation :",a:["ONG","Rien","Rien","Rien"],c:0,e:"Neurorights Foundation = ONG."},
+{q:"Brain-Computer Interface :",a:["Cerveau-machine","Rien","Rien","Rien"],c:0,e:"BCI = cerveau-machine."}
+]},
+{id:"E37", module:"Module 37 - Intelligence collective", from:721, to:740, niveau:8, titre:"Examen Module 37 : Intelligence collective augmentée", duree:30, questions:[
+{q:"Essaim :",a:["Swarm","Rien","Rien","Rien"],c:0,e:"Essaim = swarm."},
+{q:"Crowdsourcing :",a:["Foule","Rien","Rien","Rien"],c:0,e:"Crowdsourcing = foule."},
+{q:"BrainNet :",a:["Réseau cerveaux","Rien","Rien","Rien"],c:0,e:"BrainNet = réseau cerveaux."},
+{q:"IIT :",a:["Information intégrée","Rien","Rien","Rien"],c:0,e:"IIT = Integrated Information Theory."},
+{q:"Human-in-the-loop :",a:["Humain valide","Rien","Rien","Rien"],c:0,e:"Human-in-the-loop = humain valide."},
+{q:"Sagesse des foules :",a:["Agrégation opinions","Rien","Rien","Rien"],c:0,e:"Sagesse des foules = agrégation opinions."},
+{q:"Federated :",a:["Apprentissage distribué","Rien","Rien","Rien"],c:0,e:"Federated = apprentissage distribué."},
+{q:"Debate :",a:["Débat","Rien","Rien","Rien"],c:0,e:"Debate = débat."},
+{q:"Conscience collective :",a:["Émergence","Rien","Rien","Rien"],c:0,e:"Conscience collective = émergence."},
+{q:"Essaim IA :",a:["Swarm","Rien","Rien","Rien"],c:0,e:"Essaim IA = swarm."}
+]},
+{id:"E38", module:"Module 38 - Post-humanité", from:741, to:760, niveau:8, titre:"Examen Module 38 : Post-humanité & conscience", duree:30, questions:[
+{q:"Post-humanité :",a:["Transhumanisme","Rien","Rien","Rien"],c:0,e:"Post-humanité = transhumanisme."},
+{q:"Cyborg :",a:["Humain augmenté","Rien","Rien","Rien"],c:0,e:"Cyborg = humain augmenté."},
+{q:"Télépathie :",a:["Communication pensée","Rien","Rien","Rien"],c:0,e:"Télépathie = communication pensée."},
+{q:"Upload :",a:["Conscience dans machine","Rien","Rien","Rien"],c:0,e:"Upload = conscience dans machine."},
+{q:"Conscience IA :",a:["Émergence","Rien","Rien","Rien"],c:0,e:"Conscience IA = émergence."},
+{q:"Droits IA :",a:["Nouveaux droits","Rien","Rien","Rien"],c:0,e:"Droits IA = nouveaux droits."},
+{q:"Fusion humain-IA :",a:["Humain-IA","Rien","Rien","Rien"],c:0,e:"Fusion = humain-IA."},
+{q:"Identité post-humaine :",a:["Soi","Rien","Rien","Rien"],c:0,e:"Identité post-humaine = soi."},
+{q:"Droits post-humains :",a:["Nouveaux droits","Rien","Rien","Rien"],c:0,e:"Droits post-humains = nouveaux droits."},
+{q:"Immortalité numérique :",a:["Après mort","Rien","Rien","Rien"],c:0,e:"Immortalité = après mort."}
+]},
+{id:"E39", module:"Module 39 - Bio-sécurité", from:761, to:780, niveau:8, titre:"Examen Module 39 : Cyber-biologie & bio-hacking", duree:30, questions:[
+{q:"Bio-hacking :",a:["Hacking corps","Rien","Rien","Rien"],c:0,e:"Bio-hacking = hacking corps."},
+{q:"CRISPR :",a:["Génie génétique","Rien","Rien","Rien"],c:0,e:"CRISPR = génie génétique."},
+{q:"Bioweapon :",a:["Arme biologique","Rien","Rien","Rien"],c:0,e:"Bioweapon = arme biologique."},
+{q:"Neuro-marketing :",a:["Marketing neuronal","Rien","Rien","Rien"],c:0,e:"Neuro-marketing = marketing neuronal."},
+{q:"Génomique :",a:["ADN","Rien","Rien","Rien"],c:0,e:"Génomique = ADN."},
+{q:"WannaCry :",a:["Attaque 2017","Rien","Rien","Rien"],c:0,e:"WannaCry = attaque 2017."},
+{q:"Bio-impression :",a:["Impression organes","Rien","Rien","Rien"],c:0,e:"Bio-impression = impression organes."},
+{q:"Nanobots :",a:["Robots microscopiques","Rien","Rien","Rien"],c:0,e:"Nanobots = robots microscopiques."},
+{q:"Bio synthétique :",a:["Biologie synthétique","Rien","Rien","Rien"],c:0,e:"Bio synthétique = biologie synthétique."},
+{q:"Rançongiciel :",a:["Ransomware","Rien","Rien","Rien"],c:0,e:"Rançongiciel = ransomware."}
+]},
+{id:"E40", module:"Module 40 - Conscience cosmique", from:781, to:800, niveau:8, titre:"Examen Module 40 : Conscience cosmique & transcendance", duree:30, questions:[
+{q:"Conscience cosmique :",a:["Univers","Rien","Rien","Rien"],c:0,e:"Conscience cosmique = univers."},
+{q:"Transcendance :",a:["Dépassement","Rien","Rien","Rien"],c:0,e:"Transcendance = dépassement."},
+{q:"Conscience universelle :",a:["Univers","Rien","Rien","Rien"],c:0,e:"Conscience universelle = univers."},
+{q:"Cyber-spiritualité :",a:["Spiritualité numérique","Rien","Rien","Rien"],c:0,e:"Cyber-spiritualité = spiritualité numérique."},
+{q:"VR :",a:["Réalité virtuelle","Rien","Rien","Rien"],c:0,e:"VR = réalité virtuelle."},
+{q:"AR :",a:["Réalité augmentée","Rien","Rien","Rien"],c:0,e:"AR = réalité augmentée."},
+{q:"Métavers :",a:["Monde virtuel","Rien","Rien","Rien"],c:0,e:"Métavers = monde virtuel."},
+{q:"Cyber-conscience :",a:["Collective","Rien","Rien","Rien"],c:0,e:"Cyber-conscience = collective."},
+{q:"Transcendance collective :",a:["Collective","Rien","Rien","Rien"],c:0,e:"Transcendance = collective."},
+{q:"800 défis :",a:["Accomplis","Rien","Rien","Rien"],c:0,e:"800 défis accomplis !"}
+]}
+];
+
+var EXAM_PASS_RATIO = 0.7;
+
+var CERT_PLAN = [
+{seuil:720, modules:"Defis 701-720", titre:"BCI & Sécurité", cert:"Neurosecurity Fellowship", url:"https://www.neurosecurity.org/", type:"paid", desc:"Programme neurosecurity. ~5000€."},
+{seuil:740, modules:"Defis 721-740", titre:"Intelligence collective", cert:"Collective Intelligence Cert", url:"https://www.ci-cert.org/", type:"paid", desc:"Certification IC. ~3000€."},
+{seuil:760, modules:"Defis 741-760", titre:"Post-humanité", cert:"Posthuman Studies Program", url:"https://www.posthuman.org/", type:"paid", desc:"Programme post-humain. ~10k€."},
+{seuil:780, modules:"Defis 761-780", titre:"Bio-sécurité", cert:"Biosecurity Fellowship", url:"https://www.biosecurity.org/", type:"paid", desc:"Programme bio-sécurité. ~8000€."},
+{seuil:800, modules:"Defis 781-800", titre:"Niveau 8 Transcendant", cert:"Advanced Consciousness Program", url:"https://www.consciousness.org/", type:"paid", desc:"Programme conscience. ~50k€."}
+];
+
+var MILESTONES = [
+{seuil:720, titre:"Sécurité BCI", date:"Apres defi 720", desc:"Stratégie BCI complète + neurorights."},
+{seuil:740, titre:"Intelligence collective", date:"Apres defi 740", desc:"Système IC + débat IA + sagesse foules."},
+{seuil:760, titre:"Post-humanité", date:"Apres defi 760", desc:"Stratégie post-humaine + droits."},
+{seuil:780, titre:"Bio-sécurité", date:"Apres defi 780", desc:"Stratégie bio + bio-hacking + données santé."},
+{seuil:800, titre:"Niveau 8 Transcendant - 800 défis", date:"Apres defi 800", desc:"Parcours transcendant complet 800 défis."}
+];
+
+var JOBS = [
+{nom:"Chercheur neurosecurity", url:"https://www.linkedin.com/jobs/", type:"Recherche", desc:"Sécurité BCI."},
+{nom:"Architecte intelligence collective", url:"https://www.linkedin.com/jobs/", type:"Entreprise", desc:"Systèmes IC."},
+{nom:"Directeur posthuman studies", url:"https://www.posthuman.org/", type:"Recherche", desc:"Post-humanité."},
+{nom:"Chercheur biosecurity", url:"https://www.biosecurity.org/", type:"Recherche", desc:"Bio-sécurité."},
+{nom:"Directeur conscience cosmique", url:"https://www.consciousness.org/", type:"Recherche", desc:"Conscience."},
+{nom:"Conseiller ONU neurotech", url:"https://www.un.org/", type:"International", desc:"Gouvernance neurotech."},
+{nom:"Chercheur Neuralink", url:"https://neuralink.com/", type:"Entreprise", desc:"Implants cerveau."},
+{nom:"Board advisor transcendant", url:"https://www.linkedin.com/jobs/", type:"International", desc:"Conseil board."}
+];
+
+var state = JSON.parse(localStorage.getItem('cyber_ci_lvl8') || '{"done":{},"exams":{}}');
+if (!state.exams) state.exams = {};
+Object.keys(state.done).forEach(function(id){ if (state.done[id] === true) state.done[id] = new Date().toISOString(); });
+function save(){ localStorage.setItem('cyber_ci_lvl8', JSON.stringify(state)); }
+var app = document.getElementById('app');
+
+function todayKey(){ return new Date().toISOString().split('T')[0]; }
+function countToday(){ var t = todayKey(); return Object.values(state.done).filter(function(v){ return typeof v === 'string' && v.startsWith(t); }).length; }
+function countTotal(){ return Object.keys(state.done).length; }
+function passedExamsCount(){ return Object.keys(state.exams).filter(function(k){ return state.exams[k].passed; }).length; }
+
+function isExamUnlocked(ex){ for (var i = ex.from; i <= ex.to; i++){ if (!state.done[i]) return false; } return true; }
+function isExamPassed(ex){ return !!(state.exams && state.exams[ex.id] && state.exams[ex.id].passed); }
+
+function updateProg(){
+  var done = countTotal(), today = countToday();
+  document.getElementById('hs').innerHTML = "Aujourdhui : <b>" + today + "</b> · Defis : <b>" + done + "/" + D.length + "</b> · Examens : <b>" + passedExamsCount() + "/" + EXAMS.length + "</b>";
+}
+
+function render(){
+  updateProg();
+  var today = countToday(), total = countTotal();
+  
+  var html = '<div class="hero"><h2>Niveau 8 : Transcendant / Post-Humain <span class="level-tag l8">NIVEAU 8</span></h2><p>100 défis transcendants : Interfaces cerveau-machine, Intelligence collective, Post-humanité, Bio-sécurité, Conscience cosmique. Objectif : Chercheur neurosecurity, Directeur posthuman studies, Expert biosecurity, Transcendant.</p></div>';
+  
+  html += '<div class="card"><div class="stats-grid"><div class="stat"><span class="big">' + today + '</span><span class="lbl">Aujourdhui</span></div><div class="stat"><span class="big">' + total + '/100</span><span class="lbl">Defis</span></div><div class="stat"><span class="big">' + passedExamsCount() + '/5</span><span class="lbl">Examens</span></div><div class="stat"><span class="big">' + Math.round(total/D.length*100) + '%</span><span class="lbl">Progression</span></div></div>';
+  html += '<div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap"><button class="gold" onclick="showCerts()">Certifications</button><button class="gold" onclick="showStats()">Statistiques</button><button class="gold" onclick="showJobs()">Emplois</button><button class="sec" onclick="reset()">Reinitialiser</button></div></div>';
+  
+  var mods = [
+    {n:"Module 36 - Interfaces cerveau-machine", from:701, to:720, cs:720, exam:"E36"},
+    {n:"Module 37 - Intelligence collective augmentée", from:721, to:740, cs:740, exam:"E37"},
+    {n:"Module 38 - Post-humanité & conscience", from:741, to:760, cs:760, exam:"E38"},
+    {n:"Module 39 - Cyber-biologie & bio-hacking", from:761, to:780, cs:780, exam:"E39"},
+    {n:"Module 40 - Conscience cosmique & transcendance", from:781, to:800, cs:800, exam:"E40"}
+  ];
+  
+  mods.forEach(function(m){
+    var defis = D.filter(function(d){ return d.id >= m.from && d.id <= m.to; });
+    var done = defis.filter(function(d){ return state.done[d.id]; }).length;
+    var cp = CERT_PLAN.filter(function(c){ return c.seuil === m.cs; })[0];
+    var exam = EXAMS.filter(function(e){ return e.id === m.exam; })[0];
+    var examUnlocked = exam && isExamUnlocked(exam);
+    var examPassed = exam && isExamPassed(exam);
+    var status = done === defis.length ? 'done' : '';
+    
+    html += '<div class="card" style="border-left:4px solid #eab308"><h2 style="color:#fde047">' + m.n + '</h2><p style="color:#94a3b8;font-size:0.8em">' + done + '/' + defis.length + ' defis valides</p>';
+    if (cp) {
+      var badge = cp.type === 'free' ? 'free' : (cp.type === 'partial' ? 'partial' : 'paid');
+      var badgeTxt = cp.type === 'free' ? 'GRATUIT' : (cp.type === 'partial' ? 'PARTIEL' : 'PAYANT');
+      html += '<div class="cert ' + status + '"><h4>' + (status?'Debloquee':'A debloquer') + ' - ' + cp.modules + '</h4><div style="font-weight:700;margin:4px 0">' + cp.cert + ' <span class="badge ' + badge + '">' + badgeTxt + '</span></div><div style="font-size:0.85em;color:#94a3b8;margin-top:6px">' + cp.desc + '</div><div style="margin-top:6px"><a href="' + cp.url + '" target="_blank">Site officiel</a></div></div>';
+    }
+    html += '<div class="grid">';
+    defis.forEach(function(d){
+      var cls = state.done[d.id] ? 'done' : '';
+      html += '<div class="btn ' + cls + '" onclick="show(' + d.id + ')"><span class="n">Defi ' + d.id + '</span><span class="ti">' + d.t + '</span></div>';
+    });
+    html += '</div>';
+    
+    if (exam) {
+      var cls2 = examPassed ? 'passed' : (examUnlocked ? '' : 'locked');
+      var badgeCls = examPassed ? 'passed' : (examUnlocked ? 'ready' : 'locked');
+      var badgeTxt2 = examPassed ? 'REUSSI' : (examUnlocked ? 'PRET' : 'VERROUILLE');
+      html += '<div class="exam-card ' + cls2 + '"><span class="exam-badge ' + badgeCls + '">' + badgeTxt2 + '</span><h4>' + exam.titre + '</h4>';
+      html += '<div class="qcount">' + exam.questions.length + ' questions · Seuil : ' + Math.round(EXAM_PASS_RATIO*100) + '% · ' + exam.duree + ' min</div>';
+      if (examPassed) {
+        var sc = state.exams[exam.id].score;
+        html += '<div style="color:#86efac;font-size:0.85em;margin-top:6px">Score : ' + sc + '/' + exam.questions.length + ' (' + Math.round(sc/exam.questions.length*100) + '%)</div>';
+        html += '<div class="nav"><button class="exam" onclick="startExam(\'' + exam.id + '\')">Repasser</button></div>';
+      } else if (examUnlocked) {
+        html += '<div style="color:#fde047;font-size:0.85em;margin-top:6px">Module complete ! Passez l\'examen.</div>';
+        html += '<div class="nav"><button class="exam" onclick="startExam(\'' + exam.id + '\')">Passer l\'examen</button></div>';
+      } else {
+        var reste = exam.to - done;
+        html += '<div style="color:#94a3b8;font-size:0.85em;margin-top:6px">Validez les ' + reste + ' defis restants pour debloquer.</div>';
+      }
+      html += '</div>';
+    }
+    
+    html += '</div>';
+  });
+  
+  app.innerHTML = html;
+  window.scrollTo(0,0);
+}
+
+function show(id){
+  var d = D.filter(function(x){ return x.id === id; })[0];
+  if (!d) return;
+  var dateValid = state.done[d.id];
+  var dateStr = dateValid ? new Date(dateValid).toLocaleString('fr-FR') : '';
+  
+  var html = '<div class="card"><div class="meta"><small>Defi ' + d.id + '/800</small><small>' + d.d + ' min</small>' + (dateStr ? '<small style="color:#22c55e">Valide le ' + dateStr + '</small>' : '') + '<small class="level-tag l8">NIVEAU 8</small></div>';
+  html += '<h2>Defi ' + d.id + ' : ' + d.t + '</h2>';
+  html += '<div class="intro"><h3 style="color:#fde047;margin-top:0">Introduction</h3><p>' + d.intro + '</p></div>';
+  html += '<div class="analogy"><b>Analogie :</b> ' + d.analogy + '</div>';
+  
+  d.sections.forEach(function(s, i){
+    html += '<div class="section"><h3>' + (i+1) + '. ' + s.titre + '</h3>' + s.contenu + '</div>';
+  });
+  
+  html += '<div class="why"><b>Pourquoi en cyber :</b> ' + d.why + '</div>';
+  html += '<div class="bank"><b>Pourquoi pour une banque :</b> ' + d.bank + '</div>';
+  html += '<div class="glo"><b>Glossaire :</b> ' + d.glo + '</div>';
+  html += '<div class="pr"><h3 style="color:#22c55e;margin-top:0">PRATIQUE</h3><ol>';
+  d.pr.forEach(function(p){ html += '<li>' + p + '</li>'; });
+  html += '</ol></div>';
+  html += '<div class="er"><b>Erreur a eviter :</b> ' + d.er + '</div>';
+  html += '<div class="df"><b>Exercice final :</b> ' + d.df + '</div>';
+  html += '<div class="car"><b>Livrable portfolio :</b> ' + d.proj + '</div>';
+  html += '<h3>Quiz</h3><div class="quiz" id="quiz">';
+  
+  d.q.forEach(function(q, i){
+    html += '<div class="q"><b>Q' + (i+1) + '. ' + q.q + '</b>';
+    q.a.forEach(function(opt, j){
+      html += '<label><input type="radio" name="q' + i + '" value="' + j + '"> ' + opt + '</label>';
+    });
+    html += '<div class="exp" id="exp' + i + '"></div></div>';
+  });
+  
+  html += '</div><div class="nav"><button class="sec" onclick="render()">Accueil</button><button onclick="validate(' + id + ')">Valider</button></div><div id="res"></div></div>';
+  
+  app.innerHTML = html;
+  window.scrollTo(0,0);
+}
+
+function validate(id){
+  var d = D.filter(function(x){ return x.id === id; })[0];
+  var correct = 0;
+  d.q.forEach(function(q, i){
+    var sel = document.querySelector('input[name="q' + i + '"]:checked');
+    var labels = document.querySelectorAll('input[name="q' + i + '"]');
+    labels.forEach(function(inp, j){
+      var lbl = inp.parentElement;
+      if (j === q.c) lbl.classList.add('ok');
+      if (sel && +sel.value === j && j !== q.c) lbl.classList.add('ko');
+    });
+    var exp = document.getElementById('exp' + i);
+    exp.style.display = 'block';
+    exp.innerHTML = q.e;
+    if (sel && +sel.value === q.c) correct++;
+  });
+  
+  var ok = correct === d.q.length;
+  var dejaValide = !!state.done[id];
+  document.getElementById('res').innerHTML = '<div class="res ' + (ok?'g':'r') + '">' + (ok ? 'Defi ' + d.id + ' valide !' : 'Score : ' + correct + '/' + d.q.length + ' - Reessayez') + '</div>';
+  
+  if (ok && !dejaValide) {
+    state.done[id] = new Date().toISOString();
+    save();
+    updateProg();
+    var exam = EXAMS.filter(function(e){ return e.from <= id && e.to >= id; })[0];
+    if (exam && isExamUnlocked(exam) && !isExamPassed(exam)) {
+      document.getElementById('res').innerHTML += '<div class="res g" style="margin-top:8px">Module complete ! <a href="#" onclick="startExam(\'' + exam.id + '\');return false;">Passer l\'examen final</a></div>';
+    }
+  }
+}
+
+var currentExam = null;
+
+function startExam(id){
+  var ex = EXAMS.filter(function(e){ return e.id === id; })[0];
+  if (!ex) return;
+  if (!isExamUnlocked(ex)) { alert("Validez d'abord tous les defis du module."); return; }
+  currentExam = ex;
+  
+  var html = '<div class="card"><div class="meta"><small>Examen ' + ex.id + '</small><small>' + ex.questions.length + ' questions</small><small>Seuil ' + Math.round(EXAM_PASS_RATIO*100) + '%</small><small class="level-tag l8">NIVEAU 8</small></div>';
+  html += '<h2>' + ex.titre + '</h2>';
+  html += '<div class="intro"><p><b>Instructions :</b> Repondez a toutes les questions. Il faut au moins ' + Math.ceil(ex.questions.length * EXAM_PASS_RATIO) + '/' + ex.questions.length + ' bonnes reponses.</p></div>';
+  html += '<div class="quiz" id="examQuiz">';
+  
+  ex.questions.forEach(function(q, i){
+    html += '<div class="q" data-qi="' + i + '"><b>Q' + (i+1) + '. ' + q.q + '</b>';
+    q.a.forEach(function(opt, j){
+      html += '<label><input type="radio" name="exam_q' + i + '" value="' + j + '"> ' + opt + '</label>';
+    });
+    html += '<div class="exp" id="exam_exp' + i + '"></div></div>';
+  });
+  
+  html += '</div><div class="nav"><button class="sec" onclick="render()">Annuler</button><button class="exam" onclick="submitExam()">Valider l\'examen</button></div><div id="exam_res"></div></div>';
+  
+  app.innerHTML = html;
+  window.scrollTo(0,0);
+}
+
+function submitExam(){
+  if (!currentExam) return;
+  var ex = currentExam;
+  var correct = 0;
+  var details = [];
+  
+  ex.questions.forEach(function(q, i){
+    var sel = document.querySelector('input[name="exam_q' + i + '"]:checked');
+    var labels = document.querySelectorAll('input[name="exam_q' + i + '"]');
+    labels.forEach(function(inp, j){
+      var lbl = inp.parentElement;
+      if (j === q.c) lbl.classList.add('ok');
+      if (sel && +sel.value === j && j !== q.c) lbl.classList.add('ko');
+    });
+    var exp = document.getElementById('exam_exp' + i);
+    exp.style.display = 'block';
+    exp.innerHTML = q.e;
+    var ok = sel && +sel.value === q.c;
+    if (ok) correct++;
+    details.push({q: q.q, ok: ok, correct: q.a[q.c], chosen: sel ? q.a[+sel.value] : '(aucune)'});
+  });
+  
+  var ratio = correct / ex.questions.length;
+  var passed = ratio >= EXAM_PASS_RATIO;
+  var existing = state.exams[ex.id];
+  if (!existing || !existing.passed || correct > existing.score) {
+    state.exams[ex.id] = {score: correct, total: ex.questions.length, passed: passed, date: new Date().toISOString()};
+    save();
+  }
+  
+  var msg = '';
+  if (passed) {
+    msg = '<div class="res g">Examen REUSSI ! ' + correct + '/' + ex.questions.length + ' (' + Math.round(ratio*100) + '%)</div>';
+    if (!existing || !existing.passed) {
+      msg += '<div class="res g" style="margin-top:8px">Felicitations, module valide !</div>';
+    }
+  } else {
+    msg = '<div class="res r">Examen echoue : ' + correct + '/' + ex.questions.length + ' (' + Math.round(ratio*100) + '%)</div>';
+  }
+  
+  msg += '<div class="card" style="margin-top:12px"><h3>Detail des reponses</h3><table><tr><th>#</th><th>Question</th><th>Votre reponse</th><th>Bonne reponse</th><th>Statut</th></tr>';
+  details.forEach(function(d, i){
+    msg += '<tr><td>' + (i+1) + '</td><td>' + d.q + '</td><td>' + d.chosen + '</td><td>' + d.correct + '</td><td style="color:' + (d.ok?'#22c55e':'#ef4444') + '">' + (d.ok?'OK':'KO') + '</td></tr>';
+  });
+  msg += '</table></div>';
+  
+  msg += '<div class="nav"><button class="sec" onclick="render()">Accueil</button><button class="exam" onclick="startExam(\'' + ex.id + '\')">Repasser</button></div>';
+  
+  document.getElementById('exam_res').innerHTML = msg;
+  updateProg();
+  window.scrollTo(0, document.body.scrollHeight - 400);
+}
+
+function showCerts(){
+  var total = countTotal();
+  var html = '<div class="card"><button class="sec" onclick="render()">Accueil</button><h2>Certifications Niveau 8 Transcendant</h2>';
+  CERT_PLAN.forEach(function(p){
+    var status = total >= p.seuil ? 'done' : '';
+    var badge = p.type === 'free' ? 'free' : (p.type === 'partial' ? 'partial' : 'paid');
+    var badgeTxt = p.type === 'free' ? 'GRATUIT' : (p.type === 'partial' ? 'PARTIEL' : 'PAYANT');
+    var exam = EXAMS.filter(function(e){ return e.to === p.seuil; })[0];
+    var examPassed = exam && isExamPassed(exam);
+    html += '<div class="cert ' + status + '"><h4>' + p.titre + ' - ' + p.modules + '</h4><div style="font-size:0.85em;color:#fbbf24;font-weight:700;margin:4px 0">' + p.seuil + ' defis minimum</div><div style="font-weight:700;margin:4px 0">' + p.cert + ' <span class="badge ' + badge + '">' + badgeTxt + '</span></div><div style="font-size:0.85em;color:#94a3b8;margin-top:6px">' + p.desc + '</div><div style="margin-top:8px"><a href="' + p.url + '" target="_blank">Site officiel</a></div>' + (status==='done'?'<div style="color:#86efac;font-weight:700;margin-top:8px">Debloquee' + (examPassed ? ' ✓ Examen reussi' : ' (examen a passer)') + '</div>':'<div style="color:#94a3b8;margin-top:8px">Encore ' + (p.seuil-total) + ' defis</div>') + '</div>';
+  });
+  html += '</div>';
+  app.innerHTML = html;
+}
+
+function showStats(){
+  var total = countTotal(), today = countToday();
+  var milestonesDone = MILESTONES.filter(function(m){ return state.done[m.seuil]; });
+  
+  var html = '<div class="card"><button class="sec" onclick="render()">Accueil</button><h2>Statistiques</h2>';
+  html += '<div class="stats-grid"><div class="stat"><span class="big">' + today + '</span><span class="lbl">Aujourdhui</span></div><div class="stat"><span class="big">' + total + '/100</span><span class="lbl">Total</span></div><div class="stat"><span class="big">' + passedExamsCount() + '/5</span><span class="lbl">Examens</span></div></div>';
+  
+  html += '<h3>Examens de module</h3>';
+  html += '<table><tr><th>Examen</th><th>Score</th><th>Statut</th></tr>';
+  EXAMS.forEach(function(ex){
+    var r = state.exams && state.exams[ex.id];
+    var statut = r ? (r.passed ? 'REUSSI' : 'ECHOUE') : 'Non passe';
+    var color = r ? (r.passed ? '#22c55e' : '#ef4444') : '#94a3b8';
+    html += '<tr><td>' + ex.titre + '</td><td>' + (r ? r.score + '/' + r.total : '-') + '</td><td style="color:' + color + ';font-weight:700">' + statut + '</td></tr>';
+  });
+  html += '</table>';
+  
+  html += '<h3>Projets majeurs atteints</h3>';
+  if (milestonesDone.length === 0) {
+    html += '<p style="color:#94a3b8">Aucun projet majeur encore atteint.</p>';
+  } else {
+    html += '<ul>';
+    milestonesDone.forEach(function(m){ html += '<li><b>' + m.titre + '</b> - ' + m.date + '<br><span style="color:#94a3b8;font-size:0.85em">' + m.desc + '</span></li>'; });
+    html += '</ul>';
+  }
+  html += '</div>';
+  app.innerHTML = html;
+}
+
+function showJobs(){
+  var html = '<div class="card"><button class="sec" onclick="render()">Accueil</button><h2>Emplois Transcendant</h2>';
+  JOBS.forEach(function(j){
+    html += '<div class="job"><h4>' + j.nom + '</h4><div style="font-size:0.75em;color:#94a3b8">' + j.type + '</div><div style="margin:6px 0;font-size:0.88em">' + j.desc + '</div><a href="' + j.url + '" target="_blank">' + j.url + '</a></div>';
+  });
+  html += '</div>';
+  app.innerHTML = html;
+}
+
+function reset(){
+  if (confirm('Reinitialiser toute la progression du Niveau 8 ?')) {
+    localStorage.removeItem('cyber_ci_lvl8');
+    location.reload();
+  }
+}
+
+render();
+</script>
+</body>
+</html>
